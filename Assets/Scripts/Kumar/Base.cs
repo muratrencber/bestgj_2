@@ -24,10 +24,18 @@ public class Base : MonoBehaviour
         }
         
     }
-    IEnumerable GenerateCards() {
+    IEnumerator GenerateCards() {
 
-        Instantiate(cardPrefab, Vector3.Lerp(transform.position, cardBase1.transform.position, Time.deltaTime), Quaternion.identity);
-        Instantiate(cardPrefab, Vector3.Lerp(transform.position, cardBase2.transform.position, Time.deltaTime), Quaternion.identity);
+        GameObject tmp1 = Instantiate(cardPrefab, transform.position, Quaternion.identity);
+        
+
+        GameObject tmp2 = Instantiate(cardPrefab, transform.position, Quaternion.identity);
+        while((tmp1.transform.position - cardBase1.transform.position).magnitude >= 0.001f && (tmp2.transform.position - cardBase2.transform.position).magnitude >= 0.001f) {
+            tmp1.transform.position = Vector3.Lerp(tmp1.transform.position, cardBase1.transform.position, Time.deltaTime);
+            tmp2.transform.position = Vector3.Lerp(tmp2.transform.position, cardBase2.transform.position, Time.deltaTime);
+            yield return null;
+        }
+        
         yield return null;
     }
 }
