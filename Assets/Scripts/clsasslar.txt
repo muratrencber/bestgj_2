@@ -43,7 +43,8 @@ DayManager
 metodlar:
     OnDayStarted -> gün başladığında yapılacaklar
     OnDayEnded -> gün bittiğinde yapılacaklar 
-bunları implement eder misiniz 🥺 👉 👈
+bunları implement eder misiniz 🥺👉👈
+
 UIPrompt:
     promptQueue -> yazılacak yazıların sırası
 metodlar:
