@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7589775479955157299}
   m_Layer: 0
   m_Name: cubukkraker
-  m_TagString: Kraker
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   types: 0300000006000000080000000a000000
   item: 9
+  otomatNumber: 0
 --- !u!61 &-4973144320421216549
 BoxCollider2D:
   m_ObjectHideFlags: 0

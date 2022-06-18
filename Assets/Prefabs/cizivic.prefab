@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2761520137692283771}
   m_Layer: 0
   m_Name: cizivic
-  m_TagString: Cizivic
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   types: 030000000600000007000000080000000a000000
   item: 8
+  otomatNumber: 0
 --- !u!61 &6200085543463315792
 BoxCollider2D:
   m_ObjectHideFlags: 0
