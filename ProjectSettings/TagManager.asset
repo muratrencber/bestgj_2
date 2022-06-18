@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Probis
-  - Canpare
-  - Cizivic
-  - Kraker
-  - Tutku
+  - button
+  - item
   layers:
   - Default
   - TransparentFX
