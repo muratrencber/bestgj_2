@@ -1,0 +1,52 @@
+DayEntity: soyut sınıf, tüm elemanlar buradan derive edecek
+metodlar:
+    OnDayStarted -> gün başladığında yapılacaklar
+    OnDayEnded -> gün bittiğinde yapılacaklar
+
+Student: DayEntity
+    positivity -> oyuncuyu ne kadar seviyor?
+    likes<tag, points> -> eşyalara puanlar
+    body[] -> vücudu oluşturan sprite objeleri
+metodlar:
+    CreateBody -> Öğrenci bedeni yaratılacak
+    SetLikes -> puanlar belirlenecek
+    OnReceivedItem -> Verildiğinde çalışacak, oyuncuya karşı olan tutum değişecek ve bir şeyler söyleyecek
+    InspectItem -> Beğenilen, beğenilmeyen yönler incelenip bir diyalog oluşturulacak
+    MakeRemark -> Diyalog printleyici gibi
+    Vote -> Oyun sonunda, kullanıcıya oy verip vermeyeceği belirlenecek
+   //bu class için altta kalan kısımlar yetişirse
+    Ask -> Oyuncunun sorduğu soruya tepki verilecek
+   //altta kalan kısımlar sona erdi
+
+Otomat: DayEntity
+    currency
+    currentNumber -> girilen numara
+    items -> eşyalar ve numaraları, ayrıca fiyatları da olmalı
+metodlar:
+    PromptAtScreen -> otomat ekranına yazdırma fonksiyonu
+    OnPressedButton ->ilk basışta bekle, ikinci basışta eşya vermeye çalış
+    GiveItem -> eşyayı ver
+    GiveChange -> kalan parayı ver
+
+PlayerStorage: DayEntity
+    items<item, count> -> halihazırdaki eşyalar
+    currencies<liraType, count> -> bozuk paralar
+metodlar:
+    CalculateMoney -> liraları toplayıp tam para olarak söyler
+    Spend -> para harcar, currencies dicti değişir
+    OnReceivedItem -> items dictine eklenir
+    OnGaveItem -> items dictinden çıkarılır
+
+DayManager
+    remainingDays -> kaç gün kaldı?
+    timeScale -> gün ne kadar hızlı geçecek?
+metodlar:
+    OnDayStarted -> gün başladığında yapılacaklar
+    OnDayEnded -> gün bittiğinde yapılacaklar 
+bunları implement eder misiniz 🥺 👉 👈
+UIPrompt:
+    promptQueue -> yazılacak yazıların sırası
+metodlar:
+    BeginPrompts -> ekran siyaha döner (veya nasıl bir görsellik istiyorsak)
+    EndPrompts -> ekran geri gelir
+    AddPrompt(string, süre, fonksiyon) -> <süre> kadar <strin> yazdırılır, eklenirse bitişte fonksiyon çağrılır 
