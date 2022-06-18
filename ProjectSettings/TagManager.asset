@@ -6,6 +6,12 @@ TagManager:
   tags:
   - button
   - item
+  - MainScene
+  - Secene1
+  - Scene2
+  - 0
+  - 1
+  - 2
   layers:
   - Default
   - TransparentFX
