@@ -22,8 +22,7 @@ public class InteractWithAutomata : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
             if(hit.collider != null || hit.collider.tag == "button")
             {
-                Debug.Log(hit.collider.gameObject.GetComponent<OtomatButton>().number);
-                
+                automata.GetComponent<Otomat>().enterItem(hit.collider.gameObject.GetComponent<OtomatButton>().number);
             }
         }
 

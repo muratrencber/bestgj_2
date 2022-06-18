@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 714277452494046270}
   m_Layer: 0
   m_Name: brobis
-  m_TagString: Probis
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   types: 000000000600000008000000090000000c00000007000000
   item: 6
+  otomatNumber: 0
 --- !u!61 &-8460664421899824517
 BoxCollider2D:
   m_ObjectHideFlags: 0

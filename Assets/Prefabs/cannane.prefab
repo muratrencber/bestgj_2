@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2161324760963741406}
   m_Layer: 0
   m_Name: cannane
-  m_TagString: Canpare
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   types: 0000000006000000080000000c0000000900000007000000
   item: 5
+  otomatNumber: 0
 --- !u!61 &-3374203137491535027
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2369709856498109159}
   m_Layer: 0
   m_Name: utku
-  m_TagString: Tutku
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   types: 000000000d00000007000000080000000c00000009000000
   item: 7
+  otomatNumber: 0
 --- !u!50 &8954559801198377144
 Rigidbody2D:
   serializedVersion: 4

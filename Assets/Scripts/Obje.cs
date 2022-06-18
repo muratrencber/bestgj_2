@@ -6,10 +6,8 @@ public class Obje : MonoBehaviour
 {
     public Types[] types;
     public Items item;
-    //int amount;
-    //GameObject item;
     float price;
-    
+    public int otomatNumber;
 }
 
 public enum Types
