@@ -20,7 +20,7 @@ public class InteractWithAutomata : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-            if(hit.collider != null || hit.collider.tag == "button")
+            if(hit.collider != null && hit.collider.tag == "button")
             {
                 automata.GetComponent<Otomat>().enterItem(hit.collider.gameObject.GetComponent<OtomatButton>().number);
             }
