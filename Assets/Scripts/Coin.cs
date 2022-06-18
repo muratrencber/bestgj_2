@@ -8,6 +8,7 @@ public class Coin : MonoBehaviour
     private Vector3 inititalPos;
     [SerializeField]
     private GameObject hazne;
+    private float speed = 6f;
     private bool Pressed = false;
     private Vector2 mousePos;
 
@@ -33,14 +34,15 @@ public class Coin : MonoBehaviour
             transform.position = mousePos;// new Vector3(mousePos.x, mousePos.y, mousePos.z -4);
             if(Mathf.Abs(mousePos.x - hazne.transform.position.x) <= 0.1 &&Mathf.Abs(mousePos.y - hazne.transform.position.y) <= 0.1) {
 
-                Destroy(this, 0.1f);
+                Destroy(gameObject, 0);
             }
             
 
         }
         else {
 
-            transform.position = inititalPos;
+            //transform.position = inititalPos;
+            transform.position = Vector3.Lerp(transform.position, inititalPos, Time.deltaTime * speed);
         }
     }
 }

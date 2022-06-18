@@ -12,6 +12,7 @@ TagManager:
   - 0
   - 1
   - 2
+  - card
   layers:
   - Default
   - TransparentFX
