@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Student : DayEntity
 {
+    //set paths
+    const string assetsPath = "CharacterAssets/";
+    const string femalePath = "female";
+    const string malePath = "male";
+    const string unisexPath = "all";
+
+    static readonly string[] CREATION_ORDER = {"body", "mouth", "nose", "eye", "eyebrow", "hair", "cloth"};
+    
 
     private IDictionary<Types, int> puanlar;
     private IDictionary<Items, int> puanlarItem;
@@ -15,13 +23,45 @@ public class Student : DayEntity
     private GameObject gameObject1;
     int positivity;
     //public Sprite[] body;
+    [SerializeField] Color[] hairColors;
+    Transform spritesContainer;
+    bool isFemale;
 
-    void CreateBody(/*Sprite[] body*/) {
+    GameObject CreateAsChild(Transform parent){
+        GameObject obj = new GameObject();
+        obj.transform.SetParent(transform);
+        obj.transform.localPosition = Vector3.one;
+        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.localScale = Vector3.one;
+        return obj;
+    }
 
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        Sprite sprites = Resources.Load<Sprite>("path");
-        renderer.sprite = sprites;
+    void CreateBody() {
+        isFemale = Random.Range(1, 101) > 50;
+        string genderPath = isFemale ? femalePath : malePath;
 
+        //set containe
+        spritesContainer = CreateAsChild(transform).transform;
+
+        for(int i = 0; i < CREATION_ORDER.Length; i++){
+            string key = CREATION_ORDER[i];
+            Sprite[] unisexSprites = Resources.LoadAll<Sprite>(assetsPath+key+"/"+unisexPath);
+            Sprite[] genderSprites = Resources.LoadAll<Sprite>(assetsPath+key+"/"+genderPath);
+
+            int unisexLength = unisexSprites == null ? 0 : unisexSprites.Length;
+            int genderLength = genderSprites == null ? 0 : genderSprites.Length;
+
+            int selectedIndex = Random.Range(0, unisexLength + genderLength);
+            Sprite selectedSprite = selectedIndex >= unisexLength ? genderSprites[selectedIndex - unisexLength] : unisexSprites[selectedIndex];
+
+            GameObject rendererObject = CreateAsChild(spritesContainer);
+            SpriteRenderer thisRenderer = rendererObject.AddComponent<SpriteRenderer>();
+            thisRenderer.sprite = selectedSprite;
+            if (key == "hair"){
+                thisRenderer.color = hairColors[Random.Range(0, hairColors.Length)];
+            }
+            rendererObject.transform.localPosition += new Vector3(0, 0, -i*0.01f);
+        }
     }
 
     void SetLikes() {
@@ -78,7 +118,8 @@ public class Student : DayEntity
 
         //credit = 0;
         //Init();
-        GetPoint(gameObject1);
+        CreateBody();
+        //GetPoint(gameObject1);
     }
 
     // Update is called once per frame
