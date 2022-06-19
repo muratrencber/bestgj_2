@@ -1,13 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+3 -> 6
+2 -> 4
+1.5 -> 3
+2.5 5
+1.5 3
+1 2
+4.5 9
+5 9
+3.5 7
+4 8
+3 6
+2.5 5
+3.6 7
+*/
 public class Obje : MonoBehaviour
 {
     public Types[] types;
     public Items item;
-    float price;
-    public int otomatNumber;
+    public string objeName;
+    public int price;
 }
 
 public enum Types

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : InteractableBase
 {
 
     private Vector3 inititalPos;
@@ -12,12 +12,12 @@ public class Coin : MonoBehaviour
     private bool Pressed = false;
     private Vector2 mousePos;
 
-    void OnMouseDown() {
+    public override void OnCursorDown() {
 
         Pressed = true;
         GetComponent<Rigidbody2D>().isKinematic = true;
     }
-    void OnMouseUp() {
+    public override void OnCursorUp() {
 
         Pressed = false;
         GetComponent<Rigidbody2D>().isKinematic = false;

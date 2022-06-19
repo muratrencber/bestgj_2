@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3916860632783116410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3916860632783116411}
+  - component: {fileID: 3916860632783116405}
+  - component: {fileID: 3916860632783116404}
+  m_Layer: 5
+  m_Name: Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3916860632783116411
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916860632783116410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5119504, y: 0.42200002}
+  m_AnchorMax: {x: 0.5444483, y: 0.4798844}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3916860632783116405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916860632783116410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ff11c12fdf6c74dbd09095e2b9c5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - sprite: {fileID: 21300000, guid: a310c55f5e3d16246bc9c4c51714b3c2, type: 3}
+    key: default
+    offset: {x: 23, y: 23}
+  - sprite: {fileID: 21300000, guid: 4244bbc90f77c5a4fa04d1088081150a, type: 3}
+    key: look
+    offset: {x: 32, y: 32}
+  - sprite: {fileID: 21300000, guid: 108aaf30ec66a3d419c5ef59a1fae5a5, type: 3}
+    key: go
+    offset: {x: 32, y: 32}
+  - sprite: {fileID: 21300000, guid: 9019acfd3344f5a49a4d5926dc832458, type: 3}
+    key: interact
+    offset: {x: 23, y: 23}
+  - sprite: {fileID: 21300000, guid: 170dcbe160df0a942b7aea2f7b1a2906, type: 3}
+    key: drag
+    offset: {x: 32, y: 32}
+  - sprite: {fileID: 21300000, guid: c2d404de26b6b38449021c5d1df39671, type: 3}
+    key: nolook
+    offset: {x: 32, y: 32}
+  defaultKey: default
+--- !u!114 &3916860632783116404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916860632783116410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9b5f3a04c77604db0bf9b3011b22ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  validLayers:
+    serializedVersion: 2
+    m_Bits: 1

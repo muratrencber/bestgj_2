@@ -1,10 +1,12 @@
 public interface IInteractable
 {
-    void OnMouseEnter();
-    void OnMouseStay();
-    void OnMouseExit();
-    void OnMouseDown();
-    void OnMouseHold();
-    void OnMouseUp();
+    void OnCursorEnter();
+    void OnCursorStay();
+    void OnCursorExit();
+    void OnCursorDown();
+    void OnCursorHold();
+    void OnCursorUp();
+    void OnChangedInteractable();
+    bool canBeInteracted {get;}
     string cursorOverride {get;}
 }
