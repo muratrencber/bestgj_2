@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int point;
+    public int point;
 
     void Start() {
 
