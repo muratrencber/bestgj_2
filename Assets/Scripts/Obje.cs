@@ -22,6 +22,12 @@ public class Obje : MonoBehaviour
     public Items item;
     public string objeName;
     public int price;
+    [SerializeField] NumberCreator numberCreator;
+
+    void Awake(){
+        if(numberCreator)
+        numberCreator.SetForNumber(price);
+    }
 }
 
 public enum Types
@@ -76,5 +82,6 @@ DIDO,
 ALBENI_TANE_TANE,
 ETI_CIN,
 HALLEY,
-HARBY
+HARBY,
+BIR_LIRA
 }

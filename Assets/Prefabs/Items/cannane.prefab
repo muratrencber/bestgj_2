@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5492512071367138153}
   - component: {fileID: 4988429212001633390}
   - component: {fileID: -4283543639139325857}
+  - component: {fileID: -844387476295201840}
   m_Layer: 0
   m_Name: cannane
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 00000000060000000700000008000000090000000c000000
   item: 5
   objeName: Cannane
   price: 4
+  numberCreator: {fileID: 0}
 --- !u!61 &4988429212001633390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &-844387476295201840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982141242867023539}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &5982141243140458120
 GameObject:
   m_ObjectHideFlags: 0

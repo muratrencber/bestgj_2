@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -5139163823364756211}
   - component: {fileID: 3882819500824660585}
   - component: {fileID: -1302817446649298050}
+  - component: {fileID: -3851607628635731707}
   m_Layer: 0
   m_Name: utku
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 07000000080000000d00000009000000000000000c000000
   item: 7
   objeName: "YET\u0130 Utku"
   price: 5
+  numberCreator: {fileID: 0}
 --- !u!61 &3882819500824660585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &-3851607628635731707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275474833910605537}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &5275474835373709216
 GameObject:
   m_ObjectHideFlags: 0

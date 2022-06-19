@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -3468700664366778433}
   - component: {fileID: 6964671626287996754}
   - component: {fileID: -5484285340701809570}
+  - component: {fileID: -327568377870334480}
   m_Layer: 0
   m_Name: minder
   m_TagString: Untagged
@@ -131,10 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 07000000080000000d00000000000000
   item: 15
   objeName: "Minder \xC7ikolata"
   price: 9
+  numberCreator: {fileID: 0}
 --- !u!61 &6964671626287996754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +178,16 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &-327568377870334480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383144625971873418}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 

@@ -6,10 +6,13 @@ public class MouseController : MonoBehaviour
 
     IInteractable lastInteractable = null;
     Collider2D lastInteractableCollider = null;
+    bool Check(IInteractable inter){
+        return lastInteractableCollider;
+    }
     void Update(){
-        if(UIPrompt.Busy)
+        if(UIPrompt.Busy || PlayerStorage.instance.gameEnded)
             return;
-        if(lastInteractable != null && !lastInteractable.canBeInteracted){
+        if(Check(lastInteractable) && !lastInteractable.canBeInteracted){
             lastInteractable = null;
             lastInteractableCollider = null;
         }
@@ -23,7 +26,15 @@ public class MouseController : MonoBehaviour
                 break;
             } if(newInteractable == null) {
                 newCollider = coll;
-                newInteractable = coll.GetComponent<IInteractable>();
+                IInteractable[] ints = coll.GetComponents<IInteractable>();
+                if(ints != null){
+                    foreach(IInteractable i in ints){
+                        if(i.canBeInteracted){
+                            newInteractable = i;
+                            break;
+                        }
+                    }
+                }
                 if(newInteractable != null && !newInteractable.canBeInteracted){
                     newInteractable = null;
                     newCollider = null;

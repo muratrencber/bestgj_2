@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1770995893320256052}
   - component: {fileID: 8429508897140554548}
   - component: {fileID: -8316587894362582440}
+  - component: {fileID: 1977104937910509085}
   m_Layer: 0
   m_Name: cizivic
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 030000000600000008000000070000000a000000
   item: 8
   objeName: "\xC7izim Vi\xE7"
   price: 5
+  numberCreator: {fileID: 0}
 --- !u!61 &8429508897140554548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &1977104937910509085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494288912385669020}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &7494288912550573936
 GameObject:
   m_ObjectHideFlags: 0

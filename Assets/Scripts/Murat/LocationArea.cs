@@ -13,7 +13,7 @@ public class LocationArea : InteractableBase
     protected override bool EvaluateAvailability()
     {
         Location loc = Location.GetLocation(key);
-        return loc;
+        return loc && !CameraControls.InLook;
     }
 
     public override void OnCursorDown(){

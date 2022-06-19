@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6854094543331876429}
   - component: {fileID: 1682407885647188625}
   - component: {fileID: -2694012996051981453}
+  - component: {fileID: 5904628770792866794}
   m_Layer: 0
   m_Name: poritos
   m_TagString: Untagged
@@ -131,10 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 07000000080000000b0000000a0000000300000004000000
   item: 10
   objeName: Poritos Shots
   price: 7
+  numberCreator: {fileID: 0}
 --- !u!61 &1682407885647188625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +178,16 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &5904628770792866794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874038299407832763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 

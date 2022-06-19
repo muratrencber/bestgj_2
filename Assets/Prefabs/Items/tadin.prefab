@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -5381676608348024920}
   - component: {fileID: 3110145920169394815}
   - component: {fileID: -1961154626989522262}
+  - component: {fileID: -1808612773567702247}
   m_Layer: 0
   m_Name: tadin
   m_TagString: Untagged
@@ -131,10 +132,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 0700000006000000
   item: 18
   objeName: "Tad\u0131n Bar"
   price: 8
+  numberCreator: {fileID: 0}
 --- !u!61 &3110145920169394815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +178,16 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &-1808612773567702247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859501990697950456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 

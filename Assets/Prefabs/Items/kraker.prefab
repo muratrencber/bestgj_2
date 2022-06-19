@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -254053615518817705}
   - component: {fileID: 8123045678748891788}
   - component: {fileID: 4518934291923754012}
+  - component: {fileID: -7930225898500891855}
   m_Layer: 0
   m_Name: kraker
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 070000000800000003000000060000000a000000
   item: 9
   objeName: "Caker \xC7ubuk Karaker"
   price: 2
+  numberCreator: {fileID: 0}
 --- !u!61 &8123045678748891788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &-7930225898500891855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309673479396737655}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &309673479820320223
 GameObject:
   m_ObjectHideFlags: 0

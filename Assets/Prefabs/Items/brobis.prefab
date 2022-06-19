@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -8841783502785575559}
   - component: {fileID: 5556157543713908621}
   - component: {fileID: 4267155019131287380}
+  - component: {fileID: 7034324417379547217}
   m_Layer: 0
   m_Name: brobis
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 00000000060000000900000007000000080000000c000000
   item: 6
   objeName: Brobis
   price: 6
+  numberCreator: {fileID: 0}
 --- !u!61 &5556157543713908621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &7034324417379547217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3148289080472874376}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &3148289081156799763
 GameObject:
   m_ObjectHideFlags: 0

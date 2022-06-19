@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1191615458838757119}
   - component: {fileID: 6585191166280442068}
   - component: {fileID: 4820549071163085682}
+  - component: {fileID: 4257803522050145440}
   m_Layer: 0
   m_Name: nilka
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 07000000080000000d00000000000000
   item: 14
   objeName: "Nilka \xC7ikolata"
   price: 9
+  numberCreator: {fileID: 0}
 --- !u!61 &6585191166280442068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &4257803522050145440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704285231627720683}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &7704285231932063253
 GameObject:
   m_ObjectHideFlags: 0

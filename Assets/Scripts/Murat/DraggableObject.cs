@@ -6,6 +6,7 @@ public class DraggableObject : InteractableBase
     static bool dragging;
     [SerializeField] float lerpSpeed;
     [SerializeField] Vector2 offset;
+    
     Transform parent;
     Vector3 savedPosition;
     protected override string EvaluateCursor()
@@ -37,6 +38,15 @@ public class DraggableObject : InteractableBase
             transform.SetParent(parent);
             dragging = false;
             thisDragging = false;
+
+            ItemReceiver[] receivers = GameObject.FindObjectsOfType<ItemReceiver>();
+            foreach(ItemReceiver rec in receivers){
+                if(rec.Check(gameObject, GetComponent<Obje>().item)){
+                    rec.TakeItem(gameObject);
+                    print("Take item!");
+                    return;
+                }
+            }
         }
     }
 

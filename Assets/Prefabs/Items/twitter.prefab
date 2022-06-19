@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2859039072787142550}
   - component: {fileID: -4549279811042702224}
   - component: {fileID: 2158656804013881765}
+  - component: {fileID: 7859464892222940881}
   m_Layer: 0
   m_Name: twitter
   m_TagString: Untagged
@@ -46,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 0700000001000000
   item: 13
   objeName: Twitter Dondurma
   price: 6
+  numberCreator: {fileID: 0}
 --- !u!114 &2158656804013881765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +67,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &7859464892222940881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2859039072787142545}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &2859039073496818283
 GameObject:
   m_ObjectHideFlags: 0

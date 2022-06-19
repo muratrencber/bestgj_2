@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -7004678226280247009}
   - component: {fileID: 3037508447875170689}
   - component: {fileID: 4427643415494567114}
+  - component: {fileID: 8611671792310098090}
   m_Layer: 0
   m_Name: citos
   m_TagString: Untagged
@@ -47,10 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  types: 
+  types: 07000000080000000a000000
   item: 11
   objeName: "\xC7itos Shots"
   price: 3
+  numberCreator: {fileID: 0}
 --- !u!61 &3037508447875170689
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,6 +94,19 @@ MonoBehaviour:
   cursorName: 
   lerpSpeed: 10
   offset: {x: 0, y: -0.6}
+--- !u!114 &8611671792310098090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8259537274949826934}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af88d70c7b1731438bcfbb95dc8bd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorName: 
 --- !u!1 &8259537275259170689
 GameObject:
   m_ObjectHideFlags: 0

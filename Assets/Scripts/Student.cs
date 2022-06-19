@@ -1,9 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Student : DayEntity
 {
+    struct PartialD
+    {
+        string first;
+        string last;
+
+        public PartialD(string one, string two){
+            first = one;
+            last = two;
+        }
+
+        public string Evaluate(string inObj){
+            return first +" "+inObj+" "+last;
+        }
+    }
+
     //set paths
     const string assetsPath = "CharacterAssets/";
     const string femalePath = "female";
@@ -13,19 +29,25 @@ public class Student : DayEntity
     static readonly string[] CREATION_ORDER = {"body", "mouth", "nose", "eye", "eyebrow", "hair", "cloth"};
     
 
-    private IDictionary<Types, int> puanlar;
-    private IDictionary<Items, int> puanlarItem;
+    private Dictionary<Types, int> puanlar;
+    private Dictionary<Items, int> puanlarItem;
     [SerializeField]
     private int min, max, minItems, maxItems;
+    [SerializeField] float maxLikeRatio, ratioMult, threshold;
     //[SerializeField]
     //private int credit;
     [SerializeField]
     private GameObject gameObject1;
-    int positivity;
+    public float positivity;
     //public Sprite[] body;
     [SerializeField] Color[] hairColors;
     Transform spritesContainer;
     bool isFemale;
+    [SerializeField] TextMeshProUGUI t1, t2;
+
+    Dictionary<Types, string> typeLikeDialogues = new Dictionary<Types, string>();
+    List<string> dislikeDialogues = new List<string>();
+    List<PartialD> genericLikeDialogues = new List<PartialD>();
 
     GameObject CreateAsChild(Transform parent){
         GameObject obj = new GameObject();
@@ -34,6 +56,117 @@ public class Student : DayEntity
         obj.transform.localRotation = Quaternion.identity;
         obj.transform.localScale = Vector3.one;
         return obj;
+    }
+
+    float timer;
+
+    void Update(){
+        if(timer > 0){
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+                ClearText();
+        }
+    }
+        
+    void Start()
+    {
+        ClearText();
+        SetDialogues();
+        CreateBody();
+        SetLikes();
+    }
+    
+    public override void OnDayEnded()
+    {
+        ClearText();
+    }
+    public override void OnDayStarted()
+    {
+        ClearText();
+    }
+
+    void ClearText()=>SetText("");
+
+    void SetText(string t, float duration = 4){
+        t1.text = t;
+        t2.text = t;
+        timer = duration;
+    }
+
+
+
+    public void OnReceivedItem(GameObject gameObject)
+    {
+        int total = 0;
+        Obje o = gameObject.GetComponent<Obje>();
+        Types[] typeArr = o.types;
+        Items item = o.item;
+        foreach(Types t in typeArr)
+        {
+            total += puanlar[t];
+        }
+        total += puanlarItem[item];
+        float ratio = (float) total / (typeArr.Length * max + maxItems);
+        ratio *= ratioMult;
+        positivity += ratio;
+        if(ratio > 0){
+            bool specific = Random.Range(1, 101) > 80;
+            string text = "TXT";
+            if(specific)
+                text = genericLikeDialogues[Random.Range(0,genericLikeDialogues.Count)].Evaluate(o.objeName);
+            else
+                text = typeLikeDialogues[o.types[Random.Range(0, o.types.Length)]];
+            SetText(text);
+        } else{
+            SetText(dislikeDialogues[Random.Range(0, dislikeDialogues.Count)]);
+        }
+    }
+
+    public bool willVote(){
+        return positivity > threshold;
+    }
+
+    void SetLikes() {
+        puanlar = new Dictionary<Types, int>();
+        puanlarItem = new Dictionary<Items, int>();
+        int point;
+        foreach (Types type in System.Enum.GetValues(typeof(Types)))
+        {
+            point = Random.Range(min, max);
+            puanlar.Add(type, point);
+        }
+        foreach (Items item in System.Enum.GetValues(typeof(Items)))
+        {
+            point = Random.Range(minItems, maxItems);
+            puanlarItem.Add(item, point);
+        }
+    }
+
+    void SetDialogues(){
+        typeLikeDialogues.Add(Types.tatli, "Canım tam da TATLI bir şeyler istemişti.");
+        typeLikeDialogues.Add(Types.tuzlu, "Bunu normalde pek dillendirmem fakat... TUZLU şeyleri çok severim.");
+        typeLikeDialogues.Add(Types.eksi, "Yüz EKŞİTEN türdendi... Yani mükemmel!");
+        typeLikeDialogues.Add(Types.doyurucu, "Böyle DOYURUCU bir şey uzun zamandır yememiştim.");
+        typeLikeDialogues.Add(Types.yiyecek, "Hmm... YİYECEK güzelmiş.");
+        typeLikeDialogues.Add(Types.aci, "ACIYMIŞ... Leziz!");
+        typeLikeDialogues.Add(Types.aburCubur, "Annem ABUR CUBUR yememi yasaklıyor ama... Sanırım bir seferden bir şey olmaz UwU");
+        typeLikeDialogues.Add(Types.kremali, "İçindeki KREMA en sevdiğimden!");
+        typeLikeDialogues.Add(Types.kitir, "KITIR KITIR en sevdiğim!");
+        typeLikeDialogues.Add(Types.baharatli, "Bana mı? Hem de bol BAHARATLI!");
+        typeLikeDialogues.Add(Types.biskuvi, "BİSKÜVİ severim!");
+        typeLikeDialogues.Add(Types.cikolatali, "ÇİKOLATA'ya asla hayır demem!");
+        typeLikeDialogues.Add(Types.icecek, "Tam da sussuzluğumu giderecek bir İÇECEK!");
+        typeLikeDialogues.Add(Types.sicak, "SICAK bir şeyler almak iyi geldi. Teşekkür ederim.");
+        typeLikeDialogues.Add(Types.soguk, "İçim SERİNLEDİ, sağ ol.");
+
+        dislikeDialogues.Add("Bu da ne, bundan nefret ettiğimi bilmiyor musun!?");
+        dislikeDialogues.Add("Ehh.. peki.");
+        dislikeDialogues.Add("Bu iğrenç şeyi hediye ederek oy alabileceğini sanıyorsan yanılıyorsun.");
+        dislikeDialogues.Add("Hayır... istemiyorum.");
+
+        genericLikeDialogues.Add(new PartialD("Bu","var ya, favorimdir!"));
+        genericLikeDialogues.Add(new PartialD("","sevdiğimi bilmene şaşırdım!"));
+        genericLikeDialogues.Add(new PartialD("Yaşasın!","be!"));
     }
 
     void CreateBody() {
@@ -63,104 +196,5 @@ public class Student : DayEntity
             rendererObject.transform.localPosition += new Vector3(0, 0, -i*0.01f);
         }
     }
-
-    void SetLikes() {
-        puanlar = new Dictionary<Types, int>();
-        puanlarItem = new Dictionary<Items, int>();
-        int point;
-        foreach (Types type in System.Enum.GetValues(typeof(Types)))
-        {
-            point = Random.Range(min, max);
-            puanlar.Add(type, point);
-        }
-        foreach (Items item in System.Enum.GetValues(typeof(Items)))
-        {
-            point = Random.Range(minItems, maxItems);
-            puanlarItem.Add(item, point);
-        }
-    }
-
-    void OnReceivedItem() {
-
-
-    }
-
-    void InspectItem() {
-
-
-    }
-
-    void MakeMark() {
-
-
-    }
-
-    void Vote() {
-
-        
-    }
-    
-    public override void OnDayEnded()
-    {
-        throw new System.NotImplementedException();
-    }
-    public override void OnDayStarted()
-    {
-        throw new System.NotImplementedException();
-    }
-
-
-        
-    //private bool isInited = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        //credit = 0;
-        //Init();
-        CreateBody();
-        //GetPoint(gameObject1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void GetPoint(GameObject gameObject)
-    {
-        int total = 0;
-        Types[] typeArr = gameObject.GetComponent<Obje>().types;
-        Items item = gameObject.GetComponent<Obje>().item;
-        foreach(Types t in typeArr)
-        {
-            total += puanlar[t];
-        }
-        total += puanlarItem[item];
-        float ratio = (float) total / (typeArr.Length * max + maxItems);
-        Debug.Log(ratio);
-        Debug.Log(total);
-        
-    }
-
-    /*public void Init()
-    {
-        puanlar = new Dictionary<Types, int>();
-        puanlarItem = new Dictionary<Items, int>();
-        int point;
-        foreach (Types type in System.Enum.GetValues(typeof(Types)))
-        {
-            point = Random.Range(min, max);
-            puanlar.Add(type, point);
-        }
-        foreach (Items item in System.Enum.GetValues(typeof(Items)))
-        {
-            point = Random.Range(minItems, maxItems);
-            puanlarItem.Add(item, point);
-        }
-
-
-    }*/
 
 }
