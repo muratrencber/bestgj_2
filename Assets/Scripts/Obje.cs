@@ -18,6 +18,7 @@ using UnityEngine;
 */
 public class Obje : MonoBehaviour
 {
+    public string key;
     public Types[] types;
     public Items item;
     public string objeName;

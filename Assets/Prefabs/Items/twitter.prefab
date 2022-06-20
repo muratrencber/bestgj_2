@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: twitter
   types: 0700000001000000
   item: 13
   objeName: Twitter Dondurma

@@ -150,5 +150,67 @@
         ],
         "price": 7
       }
+    ],
+    "tags":[
+      {
+        "key": "tatli",
+        "name": "tatlı"
+      },
+      {
+        "key": "soguk",
+        "name": "soğuk"
+      },
+      {
+        "key": "sicak",
+        "name": "sıcak"
+      },
+      {
+        "key": "tuzlu",
+        "name": "tuzlu"
+      },
+      {
+        "key": "aci",
+        "name": "acı"
+      },
+      {
+        "key": "eksi",
+        "name": "ekşi"
+      },
+      {
+        "key": "doyurucu",
+        "name": "doyurucu"
+      },
+      {
+        "key": "yiyecek",
+        "name": "yiyecek"
+      },
+      {
+        "key": "abur_cubur",
+        "name": "abur cubur"
+      },
+      {
+        "key": "kremali",
+        "name": "kremalı"
+      },
+      {
+        "key": "kitir",
+        "name": "kıtır"
+      },
+      {
+        "key": "baharatli",
+        "name": "baharatlı"
+      },
+      {
+        "key": "biskuvi",
+        "name": "bisküvi"
+      },
+      {
+        "key": "cikolatali",
+        "name": "çikolatalı"
+      },
+      {
+        "key": "icecek",
+        "name": "içecek"
+      }
     ]
   }

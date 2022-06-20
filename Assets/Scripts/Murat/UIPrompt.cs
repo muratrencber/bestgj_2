@@ -70,7 +70,8 @@ public class UIPrompt : MonoBehaviour
                     text.color = Color.Lerp(startColor, finalColor, timer / c.textFadeDuration);
                     yield return null;
                 }
-                yield return new WaitForSeconds(c.textDuration);
+                float waitTime = 0.1f;
+                yield return new WaitForSeconds(waitTime);
                 startColor = finalColor;
                 finalColor.a = 0;
                 timer = 0;

@@ -30,9 +30,10 @@ public class Configs
         instance = new Configs();
         if(instance.itemConfigs == null){
             instance.itemConfigs = JsonUtility.FromJson<ItemConfigs>(Resources.Load<TextAsset>(itemConfigsPath).ToString());
-            instance.itemConfigs.CreateItemDictionary();
+            instance.itemConfigs.CreateDictionaries();
         } if(instance.studentConfigs == null){
             instance.studentConfigs = JsonUtility.FromJson<StudentConfigs>(Resources.Load<TextAsset>(studentConfigsPath).ToString());
+            instance.studentConfigs.CreateDictionaries();
         }
     }
 }

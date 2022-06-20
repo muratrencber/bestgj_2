@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: utku
   types: 07000000080000000d00000009000000000000000c000000
   item: 7
   objeName: "YET\u0130 Utku"

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917f64ea67158744891a3f2123df301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: nilka
   types: 07000000080000000d00000000000000
   item: 14
   objeName: "Nilka \xC7ikolata"

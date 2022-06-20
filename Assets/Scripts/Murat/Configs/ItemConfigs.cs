@@ -7,29 +7,45 @@ public class ItemConfigs
     const string resourcePath = "Configs/ItemConfigs.json";
 
     [System.Serializable]
-    public struct ItemProperties{
+    public class ItemProperties{
         public string itemKey;
         public string itemName;
         public string[] tags;
         public int price;
         public float minAddition, maxAddition;
     }
+
+    [System.Serializable]
+    public class TagProperties{
+        public string key;
+        public string name;
+        public int generality = 1;
+    }
     
     public Dictionary<string, ItemProperties> ItemDictionary {get{return itemDictionary;}}
+    public Dictionary<string, TagProperties> TagDictionary {get{return tagDictionary;}}
     public ItemProperties[] ItemArray {get{return items;}}
+    public TagProperties[] TagArray {get{return tags;}}
     public float MaxAdditionMultiplier{get{return maxAdditionMultiplier;}}
+    public float DefaultMinAddition{get{return defaultMinAddition;}}
 
     static ItemConfigs instance;
     [SerializeField] ItemProperties[] items;
+    [SerializeField] TagProperties[] tags;
     [SerializeField] float maxAdditionMultiplier;
-    [SerializeField] int defaultMinAddition;
+    [SerializeField] float defaultMinAddition;
 
     Dictionary<string, ItemProperties> itemDictionary = new Dictionary<string, ItemProperties>();
+    Dictionary<string, TagProperties> tagDictionary = new Dictionary<string, TagProperties>();
 
-    public void CreateItemDictionary(){
+    public void CreateDictionaries(){
         itemDictionary.Clear();
         foreach(ItemProperties props in items){
             itemDictionary.Add(props.itemKey, props);
+        }
+        tagDictionary.Clear();
+        foreach(TagProperties props in tags){
+            tagDictionary.Add(props.key, props);
         }
     }
 }
