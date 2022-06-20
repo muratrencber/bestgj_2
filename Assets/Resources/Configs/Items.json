@@ -1,0 +1,154 @@
+{
+    "defaultMinAddition": -0.5,
+    "maxAdditionMultiplier": 0.1,
+    "items": [
+      {
+        "itemKey": "brobis",
+        "itemName": "Brobis",
+        "tags": [
+          "tatli",
+          "kremali",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "biskuvi"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "cannane",
+        "itemName": "Cannane",
+        "tags": [
+          "tatli",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "kremali",
+          "biskuvi"
+        ],
+        "price": 4
+      },
+      {
+        "itemKey": "citos",
+        "itemName": "Çitos Shots",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "kitir"
+        ],
+        "price": 3
+      },
+      {
+        "itemKey": "cizim_vic",
+        "itemName": "Çizim Viç",
+        "tags": [
+          "tuzlu",
+          "abur_cubur",
+          "doyurucu",
+          "yiyecek",
+          "kitir"
+        ],
+        "price": 5
+      },
+      {
+        "itemKey": "caker_gofret",
+        "itemName": "Caker Çikolatalı Gofret",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 3
+      },
+      {
+        "itemKey": "cubuk_kraker",
+        "itemName": "Caker Çubuk Kraker",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "tuzlu",
+          "doyurucu"
+        ],
+        "price": 2
+      },
+      {
+        "itemKey": "minder",
+        "itemName": "Minder Çikolata",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 9
+      },
+      {
+        "itemKey": "nilka",
+        "itemName": "Nilka Çikolata",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 9
+      },
+      {
+        "itemKey": "poritos",
+        "itemName": "Poritos Shots",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "baharatli",
+          "kitir",
+          "tuzlu",
+          "aci"
+        ],
+        "price": 7
+      },
+      {
+        "itemKey": "tadin_bar",
+        "itemName": "Tadın Bar",
+        "tags": [
+          "yiyecek",
+          "doyurucu"
+        ],
+        "price": 8
+      },
+      {
+        "itemKey": "twitter",
+        "itemName": "Twitter Dondurma",
+        "tags": [
+          "yiyecek",
+          "soguk"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "utku",
+        "itemName": "YETİ Utku",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "kremali",
+          "tatli",
+          "biskuvi"
+        ],
+        "price": 5
+      },
+      {
+        "itemKey": "yaram",
+        "itemName": "YETİ Karam: Gurbet",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "aci",
+          "kitir"
+        ],
+        "price": 7
+      }
+    ]
+  }
