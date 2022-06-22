@@ -36,7 +36,8 @@
           "abur_cubur",
           "kitir"
         ],
-        "price": 3
+        "price": 3,
+        "worldRotation": -90
       },
       {
         "itemKey": "cizim_vic",
@@ -70,7 +71,8 @@
           "tuzlu",
           "doyurucu"
         ],
-        "price": 2
+        "price": 2,
+        "worldRotation": -90
       },
       {
         "itemKey": "minder",
@@ -81,7 +83,9 @@
           "cikolatali",
           "tatli"
         ],
-        "price": 9
+        "price": 9,
+        "worldRotation": -90,
+        "worldScaling": 0.7
       },
       {
         "itemKey": "nilka",
@@ -105,7 +109,8 @@
           "tuzlu",
           "aci"
         ],
-        "price": 7
+        "price": 7,
+        "worldRotation": -90
       },
       {
         "itemKey": "tadin_bar",

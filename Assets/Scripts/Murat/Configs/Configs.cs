@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Configs
 {
+    const string otomatConfigsPath = "Configs/Otomat";
     const string studentConfigsPath = "Configs/Students";
     const string itemConfigsPath = "Configs/Items";
     static Configs instance;
@@ -21,9 +22,16 @@ public class Configs
             return instance.itemConfigs;
         }
     }
+    public static OtomatConfigs OtomatConfigs {
+        get{
+            CheckAndCreateInstances();
+            return instance.otomatConfigs;
+        }
+    }
 
     StudentConfigs studentConfigs;
     ItemConfigs itemConfigs;
+    OtomatConfigs otomatConfigs;
 
     static void CheckAndCreateInstances(){
         if(instance != null) return;
@@ -34,6 +42,9 @@ public class Configs
         } if(instance.studentConfigs == null){
             instance.studentConfigs = JsonUtility.FromJson<StudentConfigs>(Resources.Load<TextAsset>(studentConfigsPath).ToString());
             instance.studentConfigs.CreateDictionaries();
+        }if(instance.otomatConfigs == null){
+            instance.otomatConfigs = JsonUtility.FromJson<OtomatConfigs>(Resources.Load<TextAsset>(otomatConfigsPath).ToString());
+            instance.otomatConfigs.CreateDictionaries();
         }
     }
 }

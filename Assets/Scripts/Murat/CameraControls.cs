@@ -7,17 +7,10 @@ public class CameraControls : MonoBehaviour
     static CameraControls instance;
     public static bool InLook {get {return instance.inLook;}}
 
-    [SerializeField] bool enableZoom, enableLookahead;
+    [SerializeField] bool enableZoom;
     [SerializeField] float zoomSize, normalSize;
-    [SerializeField] float lookaheadStartDistance, maxLookahead;
     [SerializeField] float moveSpeed, zoomSpeed;
     [SerializeField] Camera cam;
-    float adjustedLADistance {get{
-        return cam.orthographicSize / normalSize * lookaheadStartDistance;
-    }}
-    float adjustedMaxLA {get{
-        return normalSize / cam.orthographicSize * maxLookahead;
-    }}
     bool lookingAhead, zooming, inLook;
     Vector3 targetPosition;
     LookArea lArea;
@@ -41,28 +34,11 @@ public class CameraControls : MonoBehaviour
     }
 
     void Update(){
-        if(enableLookahead)
-            LookaheadUpdate();
-        zooming = enableZoom && Input.GetMouseButton(1);
-        Vector3 t = lookingAhead ? targetPosition : Vector3.zero;
-        t = inLook ? transform.InverseTransformPoint(lArea.newCameraPosition.position) : t;
 
+        Vector3 t = inLook ? transform.InverseTransformPoint(lArea.newCameraPosition.position) : Vector3.zero;
+        t.z = cam.transform.localPosition.z;
         cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition, t, Time.deltaTime * moveSpeed);
-        float targetSize = zooming ? zoomSize : normalSize;
-        targetSize = inLook ? lArea.newCameraSize : targetSize;
+        float targetSize = inLook ? lArea.newCameraSize : normalSize;
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, Time.deltaTime * zoomSpeed);
-    }
-    Vector2 GetFromTransform(Vector2 screenPosition) => transform.InverseTransformPoint(cam.ScreenToWorldPoint(screenPosition));
-
-    void LookaheadUpdate(){
-        Vector2 fromVec = GetFromTransform(Input.mousePosition);
-        if(lookingAhead){
-            if(fromVec.magnitude < adjustedLADistance){
-                lookingAhead = false;
-            } else {
-                targetPosition = fromVec.normalized * Mathf.Min(fromVec.magnitude -  adjustedLADistance, adjustedMaxLA);
-            }
-        } else if(fromVec.magnitude >= adjustedLADistance)
-            lookingAhead = true;
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class NumberCreator : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer[] renderers;
     [SerializeField] int number;
     [SerializeField] bool setItself = true;
 
@@ -11,12 +10,26 @@ public class NumberCreator : MonoBehaviour
             SetForNumber(number);
     }
 
-    public void SetForNumber(int number){
+    public void SetForNumber(int number, float spacing = 0) => SetForNumber(transform, number, spacing);
+
+    public static void SetForNumber(Transform t, int number, float spacing){
         string num = number.ToString();
-        int len = Mathf.Min(num.Length, renderers.Length);
-        for(int i = 0; i < len; i++){
-            Sprite s = Resources.Load<Sprite>("Numbers/"+num[i]);
-            renderers[i].sprite = s;
+        GameObject[] objects = new GameObject[num.Length];
+        float totalWidth = 0;
+        for(int i = 0; i < num.Length; i++){
+            GameObject g = ItemWorldObjectCreator.CreateEmptyChild(t);
+            SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
+            sr.sprite = Resources.Load<Sprite>("Numbers/"+num[i]);
+            totalWidth += sr.bounds.extents.x;
+            objects[i] = g;
+        }
+        totalWidth += (spacing * (objects.Length - 1));
+        float startX = -totalWidth * .5f;
+        for(int i = 0; i < num.Length; i++){
+            GameObject o = objects[i];
+            SpriteRenderer sr = o.GetComponent<SpriteRenderer>();
+            o.transform.localPosition += Vector3.right * (startX + sr.bounds.extents.x);
+            startX += sr.bounds.extents.x * 2 + spacing;
         }
     }
 }

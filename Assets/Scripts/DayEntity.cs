@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DayEntity : MonoBehaviour
+public class DayEntity : MonoBehaviour
 {
-    public abstract void OnDayStarted();
-    public abstract void OnDayEnded();
+    public virtual void OnDayStarted() {}
+    public virtual void OnDayEnded() {}
 }

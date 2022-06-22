@@ -12,9 +12,14 @@ public class OtomatButton : InteractableBase
         return "interact";
     }
 
+    protected override bool EvaluateAvailability()
+    {
+        return otomat.CanAcceptInput();
+    }
+
     public override void OnCursorDown()
     {
         animator.SetTrigger("click");
-        otomat.enterItem(number);
+        otomat.PressKey(number);
     }
 }

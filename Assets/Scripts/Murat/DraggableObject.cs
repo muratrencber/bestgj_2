@@ -43,7 +43,6 @@ public class DraggableObject : InteractableBase
             foreach(ItemReceiver rec in receivers){
                 if(rec.Check(gameObject, GetComponent<Obje>().item)){
                     rec.TakeItem(gameObject);
-                    print("Take item!");
                     return;
                 }
             }

@@ -1,0 +1,51 @@
+{
+    "itemKeys":[
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis",
+        "brobis"
+    ],
+    "startNumber": 31,
+    "properties": [
+        {
+            "prompt":"BAŞLAMAK İÇİN MADENİ PARA ATINIZ"
+        },
+        {
+            "prompt":"ÜRÜN SEÇİMİ YAPINIZ"
+        },
+        {
+            "prompt":"ÜRÜN SEÇİMİ YAPINIZ"
+        },
+        {
+            "prompt":"...",
+            "duration": 0.7
+        },
+        {
+            "prompt":"HATALI ÜRÜN KODU",
+            "duration": 1.5
+        },
+        {
+            "prompt":"YETERSİZ BAKİYE",
+            "duration": 1.5
+        },
+        {
+            "prompt":"ÜRÜN VERİLİYOR..."
+        },
+        {
+            "prompt":"PARA ÜSTÜ VERİLİYOR..."
+        }
+    ],
+    "durationBetweenCoins":0.5,
+    "sizeX":5,
+    "sizeY":5
+}

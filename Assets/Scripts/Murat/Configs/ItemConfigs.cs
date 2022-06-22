@@ -13,6 +13,8 @@ public class ItemConfigs
         public string[] tags;
         public int price;
         public float minAddition, maxAddition;
+        public float worldRotation = 0;
+        public float worldScaling = 1;
     }
 
     [System.Serializable]

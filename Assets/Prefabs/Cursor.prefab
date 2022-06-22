@@ -69,6 +69,9 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: c2d404de26b6b38449021c5d1df39671, type: 3}
     key: nolook
     offset: {x: 32, y: 32}
+  - sprite: {fileID: 21300000, guid: dfaf7889d90d8c14d8e3662ceca73503, type: 3}
+    key: coin
+    offset: {x: 32, y: 32}
   defaultKey: default
 --- !u!114 &3916860632783116404
 MonoBehaviour:
