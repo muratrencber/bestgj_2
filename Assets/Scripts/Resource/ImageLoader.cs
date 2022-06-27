@@ -15,6 +15,7 @@ public class ImageLoader
         sal.BeginLoad(path);
         Debug.Log(totalPixels);
     }
+    //for git commit
     static Sprite ProcessFile(string filePath,
                                 string keyName,
                                 StreamingAssetLoader<Sprite>.Properties p,
