@@ -1,0 +1,46 @@
+{
+    "defaults":{
+        "properties":[
+            {
+                "key":"maxSize",
+                "numericValue": 512
+            },
+            {
+                "key":"pixelsPerUnit",
+                "numericValue": 750
+            }
+        ]
+    },
+    "properties": [
+        {
+            "fileName":"brobis"
+        },
+        {
+            "fileName":"caker_gofret"
+        },
+        {
+            "fileName":"cannane",
+            "properties":[
+                {
+                    "key":"pixelsPerUnit",
+                    "numericValue":512
+                }
+            ]
+        },
+        {
+            "fileName":"citos"
+        },
+        {
+            "fileName":"cizim_vic"
+        },
+        {
+            "fileName":"cubuk_kraker"
+        },
+        {
+            "fileName":"minder"
+        },
+        {
+            "fileName":"minder"
+        }
+    ]
+}

@@ -21,13 +21,4 @@ public class ItemWorldObjectCreator
 
         return g;
     }
-
-    public static GameObject CreateEmptyChild(Transform t){
-        GameObject newObject = new GameObject();
-        newObject.transform.SetParent(t);
-        newObject.transform.localPosition = Vector3.zero;
-        newObject.transform.localScale = Vector3.one;
-        newObject.transform.localRotation = Quaternion.identity;
-        return newObject;
-    }
 }

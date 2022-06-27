@@ -1,4 +1,5 @@
 {
+    "className":"ItemConfigs",
     "defaultMinAddition": -0.5,
     "maxAdditionMultiplier": 0.1,
     "items": [

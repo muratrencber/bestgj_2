@@ -17,7 +17,7 @@ public class NumberCreator : MonoBehaviour
         GameObject[] objects = new GameObject[num.Length];
         float totalWidth = 0;
         for(int i = 0; i < num.Length; i++){
-            GameObject g = ItemWorldObjectCreator.CreateEmptyChild(t);
+            GameObject g = t.CreateEmptyChild();
             SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
             sr.sprite = Resources.Load<Sprite>("Numbers/"+num[i]);
             totalWidth += sr.bounds.extents.x;

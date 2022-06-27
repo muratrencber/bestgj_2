@@ -20,10 +20,10 @@ public class OtomatItemsGenerator : MonoBehaviour
             Vector3 pricePosition = pos + Vector3.up * numbersYOffset + Vector3.right * numbersXoffset;
             Vector3 noPosition = pricePosition + Vector3.right * noXOffset;
 
-            GameObject newObject = ItemWorldObjectCreator.CreateEmptyChild(transform);
-            GameObject spritesObject = ItemWorldObjectCreator.CreateEmptyChild(newObject.transform);
-            GameObject priceObject = ItemWorldObjectCreator.CreateEmptyChild(newObject.transform);
-            GameObject noObject = ItemWorldObjectCreator.CreateEmptyChild(newObject.transform);
+            GameObject newObject = transform.CreateEmptyChild();
+            GameObject spritesObject = newObject.transform.CreateEmptyChild();
+            GameObject priceObject = newObject.transform.CreateEmptyChild();
+            GameObject noObject = newObject.transform.CreateEmptyChild();
 
             for(int j = 0; j < copyCount; j++){
                 GameObject item = ItemWorldObjectCreator.CreateItem(ip.itemKey, spritesObject.transform, itemScaling, itemRotation);

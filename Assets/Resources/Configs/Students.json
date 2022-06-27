@@ -1,4 +1,5 @@
 {
+    "className":"StudentConfigs",
     "minLike": -1,
     "maxLike": 1,
     "winTolerance": 3,
