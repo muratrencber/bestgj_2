@@ -699,6 +699,7 @@ MonoBehaviour:
   path: ItemSprites/brobis
   sfxPath: otomat/delivery
   sr: {fileID: 408492673}
+  tex: {fileID: 0}
 --- !u!114 &208181935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,6 +1019,7 @@ MonoBehaviour:
   path: ItemSprites/brobis
   sfxPath: 
   sr: {fileID: 0}
+  tex: {fileID: 0}
 --- !u!1 &418028965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1076,7 @@ MonoBehaviour:
   path: ItemSprites/brobis
   sfxPath: otomat/delivery
   sr: {fileID: 408492673}
+  tex: {fileID: 0}
 --- !u!114 &418028968
 MonoBehaviour:
   m_ObjectHideFlags: 0

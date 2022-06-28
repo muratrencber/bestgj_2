@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using ImageMagick;
+using System;
 
 public class ImageLoader
 {
@@ -24,13 +26,18 @@ public class ImageLoader
         int maxSize = (int)sal.GetProperty("maxSize", pl, p).NumericValue;
         float pPerU = sal.GetProperty("pixelsPerUnit", pl, p).NumericValue;
         Texture2D targetTexture = new Texture2D(1, 1, UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm, UnityEngine.Experimental.Rendering.TextureCreationFlags.Crunch);
-        byte[] texBytes = File.ReadAllBytes(filePath);
-        UnityEditor.TextureImporter textureImporter = new UnityEditor.TextureImporter();
-        
-        Resize(targetTexture, maxSize);
-        //targetTexture.Compress(false);
-        targetTexture.Apply();
-        Debug.LogFormat("width: {0}, height: {1}", targetTexture.width, targetTexture.height);
+        byte[] imBytes = File.ReadAllBytes(filePath);
+        MemoryStream outStream = new MemoryStream();
+        FileInfo info = new FileInfo(filePath);
+        using (MagickImage mi = new MagickImage(info)){
+            mi.Quality = 75;
+            pPerU *= TryResize(mi, maxSize);
+            mi.Write(outStream);
+        }
+        targetTexture.LoadImage(outStream.ToArray());
+        outStream.Close();
+        if(targetTexture.width % 4 == 0 && targetTexture.height % 4 == 0)
+            targetTexture.Compress(false);
 
         totalPixels += (ulong)(targetTexture.width * targetTexture.height);
         Sprite newSprite = Sprite.Create(targetTexture,
@@ -38,6 +45,16 @@ public class ImageLoader
                                             Vector2.one * 0.5f,
                                             pPerU);
         return newSprite;
+    }
+    static float TryResize(MagickImage mi, int maxSize){
+        int maxTex = Mathf.Max(mi.Width, mi.Height);
+        float ratio = (float)maxSize / (float) maxTex;
+        if(ratio >= 1)
+            return 1;
+        int targetX = Mathf.RoundToInt((float)mi.Width * ratio);
+        int targetY = Mathf.RoundToInt((float)mi.Height * ratio);
+        mi.Resize(targetX, targetY);
+        return ratio;
     }
     static void Resize(Texture2D texture2D, int maxSize)
     {

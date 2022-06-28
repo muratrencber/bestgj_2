@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ResourceManager
 {
@@ -23,4 +24,6 @@ public class ResourceManager
             return null;
         } else return null;
     }
+
+    public static List<Sprite> GetAllSprites()=>sprites.Values.ToList();
 }

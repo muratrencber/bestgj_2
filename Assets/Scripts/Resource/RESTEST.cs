@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RESTEST : MonoBehaviour
 {
     [SerializeField] string path;
     [SerializeField] string sfxPath;
     [SerializeField] SpriteRenderer sr;
-    [SerializeField] Texture2D tex;
+    [SerializeField] List<Texture2D> texes = new List<Texture2D>();
 
     public void SetImage(){
         Sprite s =  ResourceManager.LoadAsset<Sprite>(path);
         sr.sprite = s;
-        tex = s.texture;
+        List<Sprite> allsss = ResourceManager.GetAllSprites();
+        foreach(Sprite sn in allsss) texes.Add(sn.texture);
     }
 
 
