@@ -1,0 +1,185 @@
+{
+    "name":"Türkçe",
+    "lines":[
+        {
+            "key":"title",
+            "value":"Sunstruck/galungang sunar: OTOMAT"
+        },
+        {
+            "key":"intro_01",
+            "value":"Sınıf başkanlığı için yarışıyorsun"
+        },
+        {
+            "key":"intro_02",
+            "value":"Sınıf arkadaşlarına güzel hediyeler alıp onların aklını çelmen lazım..."
+        },
+        {
+            "key":"intro_03",
+            "value":"Ancak dikkat et, herkes her hediyeyi beğenmeyebilir. Verdiğin abur cuburların türüne göre tepkileri değişir."
+        },
+        {
+            "key":"intro_04",
+            "value":"Tüm eşyalarını harcadığında bir başkanlık seçimi yapılacak."
+        },
+        {
+            "key":"intro_05",
+            "value":"İyi şanslar."
+        },
+        {
+            "key":"ending_01",
+            "value":"Başkanlık seçimi yapıldı..."
+        },
+        {
+            "key":"ending_02",
+            "value":"{} kişiden {} kişi sana oy verdi."
+        },
+        {
+            "key":"ending_03",
+            "value":"Kaybettin. Bir dahaki sefere artık..."
+        },
+        {
+            "key":"ending_04",
+            "value":"Kazandın! Tebrikler."
+        },
+        {
+            "key": "tatli",
+            "value": "tatlı"
+        },
+        {
+            "key": "soguk",
+            "value": "soğuk"
+        },
+        {
+            "key": "sicak",
+            "value": "sıcak"
+        },
+        {
+            "key": "tuzlu",
+            "value": "tuzlu"
+        },
+        {
+            "key": "aci",
+            "value": "acı"
+        },
+        {
+            "key": "eksi",
+            "value": "ekşi"
+        },
+        {
+            "key": "doyurucu",
+            "value": "doyurucu"
+        },
+        {
+            "key": "yiyecek",
+            "value": "yiyecek"
+        },
+        {
+            "key": "abur_cubur",
+            "value": "abur cubur"
+        },
+        {
+            "key": "kremali",
+            "value": "kremalı"
+        },
+        {
+            "key": "kitir",
+            "value": "kıtır"
+        },
+        {
+            "key": "baharatli",
+            "value": "baharatlı"
+        },
+        {
+            "key": "biskuvi",
+            "value": "bisküvi"
+        },
+        {
+            "key": "cikolatali",
+            "value": "çikolatalı"
+        },
+        {
+            "key": "icecek",
+            "value": "içecek"
+        },
+        {
+            "key": "brobis",
+            "value": "Brobis"
+        },
+        {
+            "key": "cannane",
+            "value": "Cannane"
+        },
+        {
+            "key": "citos",
+            "value": "Çitos Shots"
+        },
+        {
+            "key": "cizim_vic",
+            "value": "Çizim Viç"
+        },
+        {
+            "key": "caker_gofret",
+            "value": "Caker Çikolatalı Gofret"
+        },
+        {
+            "key": "cubuk_kraker",
+            "value": "Caker Çubuk Kraker"
+        },
+        {
+            "key": "minder",
+            "value": "Minder Çikolata"
+        },
+        {
+            "key": "nilka",
+            "value": "Nilka Çikolata"
+        },
+        {
+            "key": "poritos",
+            "value": "Poritos Shots"
+        },
+        {
+            "key": "tadin_bar",
+            "value": "Tadın Bar"
+        },
+        {
+            "key": "twitter",
+            "value": "Twitter Dondurma"
+        },
+        {
+            "key": "utku",
+            "value": "YETİ Utku"
+        },
+        {
+            "key": "yaram",
+            "value": "YETİ Karam: Gurbet"
+        },
+        {
+            "key":"otomat_start",
+            "value":"BAŞLAMAK İÇİN MADENİ PARA ATINIZ"
+        },
+        {
+            "key":"otomat_select",
+            "value":"ÜRÜN SEÇİMİ YAPINIZ"
+        },
+        {
+            "key":"otomat_load",
+            "value":"..."
+        },
+        {
+            "key":"otomat_wrong",
+            "value":"HATALI ÜRÜN KODU"
+        },
+        {
+            "key":"otomat_nomoney",
+            "value":"YETERSİZ BAKİYE"
+        },
+        {
+            "key":"otomat_giving",
+            "value":"ÜRÜN VERİLİYOR..."
+        },
+        {
+            "key":"otomat_change",
+            "value":"PARA ÜSTÜ VERİLİYOR..."
+        }
+    ]
+}

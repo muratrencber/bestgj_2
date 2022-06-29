@@ -160,15 +160,15 @@
     "tags":[
       {
         "key": "tatli",
-        "name": "tatlı"
+        "name": "tatli"
       },
       {
         "key": "soguk",
-        "name": "soğuk"
+        "name": "soguk"
       },
       {
         "key": "sicak",
-        "name": "sıcak"
+        "name": "sicak"
       },
       {
         "key": "tuzlu",
@@ -176,11 +176,11 @@
       },
       {
         "key": "aci",
-        "name": "acı"
+        "name": "aci"
       },
       {
         "key": "eksi",
-        "name": "ekşi"
+        "name": "eksi"
       },
       {
         "key": "doyurucu",
@@ -192,31 +192,31 @@
       },
       {
         "key": "abur_cubur",
-        "name": "abur cubur"
+        "name": "abur_cubur"
       },
       {
         "key": "kremali",
-        "name": "kremalı"
+        "name": "kremali"
       },
       {
         "key": "kitir",
-        "name": "kıtır"
+        "name": "kitir"
       },
       {
         "key": "baharatli",
-        "name": "baharatlı"
+        "name": "baharatli"
       },
       {
         "key": "biskuvi",
-        "name": "bisküvi"
+        "name": "biskuvi"
       },
       {
         "key": "cikolatali",
-        "name": "çikolatalı"
+        "name": "cikolatali"
       },
       {
         "key": "icecek",
-        "name": "içecek"
+        "name": "icecek"
       }
     ]
   }

@@ -10,8 +10,10 @@ public class GameLoader
     public class Properties{
         public string GameName {get{return gameName;}}
         public string GamePath {get{return gamePath;}}
+        public string Language {get{return defaultLanguage;}}
 
         [SerializeField] string gameName;
+        [SerializeField] string defaultLanguage;
         string gamePath;
 
         public void SetPath(string p){

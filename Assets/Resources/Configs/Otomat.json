@@ -19,31 +19,31 @@
     "startNumber": 31,
     "properties": [
         {
-            "prompt":"BAŞLAMAK İÇİN MADENİ PARA ATINIZ"
+            "prompt":"otomat_start"
         },
         {
-            "prompt":"ÜRÜN SEÇİMİ YAPINIZ"
+            "prompt":"otomat_select"
         },
         {
-            "prompt":"ÜRÜN SEÇİMİ YAPINIZ"
+            "prompt":"otomat_select"
         },
         {
-            "prompt":"...",
+            "prompt":"otomat_load",
             "duration": 0.7
         },
         {
-            "prompt":"HATALI ÜRÜN KODU",
+            "prompt":"otomat_wrong",
             "duration": 1.5
         },
         {
-            "prompt":"YETERSİZ BAKİYE",
+            "prompt":"otomat_nomoney",
             "duration": 1.5
         },
         {
-            "prompt":"ÜRÜN VERİLİYOR..."
+            "prompt":"otomat_giving"
         },
         {
-            "prompt":"PARA ÜSTÜ VERİLİYOR..."
+            "prompt":"otomat_change"
         }
     ],
     "durationBetweenCoins":0.5,
