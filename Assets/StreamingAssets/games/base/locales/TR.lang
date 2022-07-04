@@ -151,7 +151,71 @@
         },
         {
             "key": "yaram",
-            "value": "YETİ Karam: Gurbet"
+            "value": "YETİ Yaram: Gurbet"
+        },
+        {
+            "key": "goog",
+            "value": "Goog"
+        },
+        {
+            "key": "cosbes",
+            "value": "Coşbeş"
+        },
+        {
+            "key": "hudo",
+            "value": "Hüdo"
+        },
+        {
+            "key": "yeticin",
+            "value": "YETİ Cin"
+        },
+        {
+            "key": "calbeni_tane",
+            "value": "Çalbeni Tane Tane"
+        },
+        {
+            "key": "olley",
+            "value": "Olley"
+        },
+        {
+            "key": "harbi",
+            "value": "Harbi"
+        },
+        {
+            "key": "su",
+            "value": "Su 0.5L"
+        },
+        {
+            "key": "filtre_kahve",
+            "value": "Filtre kahve"
+        },
+        {
+            "key": "latte",
+            "value": "Latte"
+        },
+        {
+            "key": "frappucino",
+            "value": "Frappucino"
+        },
+        {
+            "key": "mocha",
+            "value": "Mocha"
+        },
+        {
+            "key": "cay",
+            "value": "Çay"
+        },
+        {
+            "key": "kola",
+            "value": "Kola"
+        },
+        {
+            "key": "siyanur",
+            "value": "Siyanür"
+        },
+        {
+            "key": "sut",
+            "value": "Süt"
         },
         {
             "key":"otomat_start",
@@ -180,6 +244,42 @@
         {
             "key":"otomat_change",
             "value":"PARA ÜSTÜ VERİLİYOR..."
+        },
+        {
+            "key":"start_01",
+            "value":"Sınıf başkanlığı için yarışıyorsun"
+        },
+        {
+            "key":"start_02",
+            "value":"Sınıf arkadaşlarına güzel hediyeler alıp onların aklını çelmen lazım..."
+        },
+        {
+            "key":"start_03",
+            "value":"Ancak dikkat et, herkes her hediyeyi beğenmeyebilir. Verdiğin abur cuburların türüne göre tepkileri değişir."
+        },
+        {
+            "key":"start_04",
+            "value":"<day_count> gün sonra başkanlık seçimi yapılacak."
+        },
+        {
+            "key":"start_05",
+            "value":"İyi şanslar."
+        },
+        {
+            "key":"end_01",
+            "value":"Başkanlık seçimi yapıldı..."
+        },
+        {
+            "key":"end_02",
+            "value":"<total_count> kişiden <supporter_count> kişi sana oy verdi."
+        },
+        {
+            "key":"end_lost",
+            "value":"Kaybettin. Bir dahaki sefere artık...."
+        },
+        {
+            "key":"end_won",
+            "value":"Kazandın! Tebrikler."
         }
     ]
 }

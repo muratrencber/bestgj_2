@@ -1,0 +1,73 @@
+{
+    "color":"#ff0000",
+    "typeName":"FOOD",
+    "className":"OtomatConfigs",
+    "itemKeys":[
+        "brobis",
+        "caker_gofret",
+        "cannane",
+        "cizim_vic",
+        "minder",
+        "nilka",
+        "twitter",
+        "poritos",
+        "utku",
+        "tadin_bar",
+        "yaram",
+        "citos",
+        "cubuk_kraker",
+        "goog",
+        "cosbes",
+        "hudo",
+        "yeticin",
+        "calbeni_tane",
+        "olley",
+        "harbi",
+        "su",
+        "su",
+        "su",
+        "su",
+        "su"
+    ],
+    "startNumber": 10,
+    "properties": [
+        {
+            "stateName":"NO_MONEY",
+            "prompt":"otomat_start"
+        },
+        {
+            "stateName":"MONEY",
+            "prompt":"otomat_select"
+        },
+        {
+            "stateName":"MONEY_ONE_INPUT",
+            "prompt":"otomat_select"
+        },
+        {
+            "stateName":"PROCESSING_INPUT",
+            "prompt":"otomat_load",
+            "duration": 0.7
+        },
+        {
+            "stateName":"INVALID_NUMBER",
+            "prompt":"otomat_wrong",
+            "duration": 1.5
+        },
+        {
+            "stateName":"NOT_ENOUGH_MONEY",
+            "prompt":"otomat_nomoney",
+            "duration": 1.5
+        },
+        {
+            "stateName":"GIVING_ITEM",
+            "prompt":"otomat_giving"
+        },
+        {
+            "stateName":"GIVING_CHANGE",
+            "prompt":"otomat_change"
+        }
+    ],
+    "durationBetweenCoins":0.5,
+    "sizeX":5,
+    "sizeY":5
+}

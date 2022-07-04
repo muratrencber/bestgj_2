@@ -9,12 +9,14 @@ public class UIPrompt : MonoBehaviour
     public static bool Busy {get {return isBusy;}}
     static bool isBusy;
     static UIPrompt instance;
+    [System.Serializable]
     public class Command{
         public string text = "";
         public float textDuration = 1;
         public float betweenWait = 0.1f;
         public float bgFadeDuration = 0.1f;
         public float textFadeDuration = 0.1f;
+        public string colorHex = "";
         public Color textColor = Color.white;
         public System.Action onFinished;
     }

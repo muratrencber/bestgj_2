@@ -62,6 +62,7 @@ public class Configs
             if(targetConfigurable == null) continue;
             else if(configurables.ContainsKey(targetConfigurable)) continue;
             Configurable targetObject = JsonUtility.FromJson(content, targetConfigurable) as Configurable;
+            targetObject.Init();
             configurables.Add(targetConfigurable, targetObject);
         }
     }

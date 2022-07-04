@@ -15,7 +15,6 @@ public class ImageLoader
         defaults.AddProperty("pixelsPerUnit", 100);
         StreamingAssetLoader<Sprite> sal = new StreamingAssetLoader<Sprite>(extensions, ProcessFile, defaults, items);
         sal.BeginLoad(path);
-        Debug.Log(totalPixels);
     }
     //for git commit
     static Sprite ProcessFile(string filePath,

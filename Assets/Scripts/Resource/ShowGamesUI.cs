@@ -7,6 +7,8 @@ using TMPro;
 public class ShowGamesUI : MonoBehaviour
 {
     [SerializeField] Transform container;
+    [SerializeField] GameObject loadUI;
+    [SerializeField] TMPro.TextMeshProUGUI loadText;
     [SerializeField] string buttonPath = "UI/GameSelectButton";
 
     void Start(){
@@ -22,7 +24,7 @@ public class ShowGamesUI : MonoBehaviour
             TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TextMeshProUGUI>();
             Button b = prefabInstance.GetComponent<Button>();
             if(text) text.text = prop.GameName;
-            if(b) b.onClick.AddListener(() => ResourceManager.LoadGame(prop.GamePath));
+            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop.GamePath, loadUI, loadText)));
         }
     }
 }

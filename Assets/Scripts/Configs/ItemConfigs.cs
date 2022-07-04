@@ -8,13 +8,24 @@ public class ItemConfigs: Configurable
 
     [System.Serializable]
     public class ItemProperties{
+        public enum Type{
+            FOOD,
+            DRINK
+        }
         public string itemKey;
         public string itemName;
+        public string typeName = "FOOD";
         public string[] tags;
         public int price;
         public float minAddition, maxAddition;
         public float worldRotation = 0;
         public float worldScaling = 1;
+        public Type type;
+
+        public void Init(){
+            if(System.Enum.TryParse<Type>(typeName, true, out Type result)) type = result;
+            else type = Type.FOOD;
+        }
     }
 
     [System.Serializable]
@@ -43,6 +54,7 @@ public class ItemConfigs: Configurable
     public void CreateDictionaries(){
         itemDictionary.Clear();
         foreach(ItemProperties props in items){
+            props.Init();
             itemDictionary.Add(props.itemKey, props);
         }
         tagDictionary.Clear();

@@ -1,0 +1,114 @@
+{
+    "className":"StudentConfigs",
+    "minLike": -1,
+    "maxLike": 1,
+    "winTolerance": 3,
+    "dialogues":[
+        {
+            "mainPart":"Canım tam da TATLI bir şeyler istemişti.",
+            "target":"tatli",
+            "t":0
+        },
+        {
+            "mainPart":"Bunu normalde pek dillendirmem fakat... TUZLU şeyleri çok severim.",
+            "target":"tuzlu",
+            "t":0
+        },
+        {
+            "mainPart":"Yüz EKŞİTEN türdendi... Yani mükemmel!",
+            "target":"eksi",
+            "t":0
+        },
+        {
+            "mainPart":"Böyle DOYURUCU bir şey uzun zamandır yememiştim.",
+            "target":"doyurucu",
+            "t":0
+        },
+        {
+            "mainPart":"Hmm... YİYECEK güzelmiş.",
+            "target":"yiyecek",
+            "t":0
+        },
+        {
+            "mainPart":"ACIYMIŞ... Leziz!",
+            "target":"aci",
+            "t":0
+        },
+        {
+            "mainPart":"Annem ABUR CUBUR yememi yasaklıyor ama... Sanırım bir seferden bir şey olmaz UwU",
+            "target":"abur_cubur",
+            "t":0
+        },
+        {
+            "mainPart":"İçindeki KREMA en sevdiğimden!",
+            "target":"kremali",
+            "t":0
+        },
+        {
+            "mainPart":"KITIR KITIR en sevdiğim!",
+            "target":"kitir",
+            "t":0
+        },
+        {
+            "mainPart":"Bana mı? Hem de bol BAHARATLI!",
+            "target":"baharatli",
+            "t":0
+        },
+        {
+            "mainPart":"BİSKÜVİ severim!",
+            "target":"biskuvi",
+            "t":0
+        },
+        {
+            "mainPart":"ÇİKOLATA'ya asla hayır demem!",
+            "target":"cikolatali",
+            "t":0
+        },
+        {
+            "mainPart":"Tam da sussuzluğumu giderecek bir İÇECEK!",
+            "target":"icecek",
+            "t":0
+        },
+        {
+            "mainPart":"SICAK bir şeyler almak iyi geldi. Teşekkür ederim.",
+            "target":"sicak",
+            "t":0
+        },
+        {
+            "mainPart":"İçim SERİNLEDİ, sağ ol.",
+            "target":"soguk",
+            "t":0
+        },
+        {
+            "mainPart":"Bu da ne, bundan nefret ettiğimi bilmiyor musun!?",
+            "t":2
+        },
+        {
+            "mainPart":"Ehh.. peki.",
+            "t":2
+        },
+        {
+            "mainPart":"Bu iğrenç şeyi hediye ederek oy alabileceğini sanıyorsan yanılıyorsun.",
+            "t":2
+        },
+        {
+            "mainPart":"Hayır... istemiyorum.",
+            "t":2
+        },
+        {
+            "mainPart":"Bu ",
+            "secondaryPart":" var ya, favorimdir!",
+            "t":1
+        },
+        {
+            "mainPart":"",
+            "secondaryPart":" sevdiğimi bilmene şaşırdım!",
+            "t":1
+        },
+        {
+            "mainPart":"Yaşasın! ",
+            "secondaryPart":" be!",
+            "t":1
+        }
+    ]
+}

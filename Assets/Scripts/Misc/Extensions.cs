@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class Extensions
 {
@@ -14,5 +15,15 @@ public static class Extensions
         newObject.transform.localScale = Vector3.one;
         newObject.transform.localRotation = Quaternion.identity;
         return newObject;
+    }
+
+    public static bool TryAddValue<K,V>(this Dictionary<K,V> dct, K key, V value, bool overwrite = false){
+        if(dct.ContainsKey(key)){
+            if(overwrite) return false;
+            dct[key] = value;
+            return true;
+        }
+        dct.Add(key, value);
+        return true;
     }
 }
