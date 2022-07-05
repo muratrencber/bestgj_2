@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OtomatItemsGenerator : MonoBehaviour
@@ -10,7 +8,7 @@ public class OtomatItemsGenerator : MonoBehaviour
     [SerializeField] float itemScaling, itemRotation;
     [SerializeField] GameObject numberCreatorPrefab;
 
-    public void Create(Otomat o){
+    public void Create(FoodOtomat o){
         OtomatConfigs oc = Configs.OtomatConfigs;
         for(int i = 0; i < oc.ItemKeys.Length; i++){
             ItemConfigs.ItemProperties ip = Configs.ItemConfigs.ItemDictionary[oc.ItemKeys[i]];

@@ -201,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &9134177 stripped
@@ -590,7 +590,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &221537906 stripped
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorName: 
-  o: {fileID: 1371245719}
+  o: {fileID: 0}
 --- !u!61 &440862348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1657,7 +1657,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &667722589 stripped
@@ -1827,7 +1827,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &693306679 stripped
@@ -2141,7 +2141,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &813707629 stripped
@@ -2890,7 +2890,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &1173250549 stripped
@@ -3596,7 +3596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371245718}
-  - component: {fileID: 1371245719}
+  - component: {fileID: 1371245720}
   m_Layer: 0
   m_Name: Otomat
   m_TagString: Untagged
@@ -3635,7 +3635,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1371245719
+--- !u!114 &1371245720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3644,9 +3644,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1371245717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 289c390ad2e2b6143b286a91c973bf90, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a31c60228f6eef4c8ab7f988bbaa87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 1492600869}
+  deposit: 0
   rowContainer: {fileID: 1946149269}
   columnContainer: {fileID: 356486679}
   objectSpawnPosition: {fileID: 1109858377}
@@ -3654,9 +3656,7 @@ MonoBehaviour:
   slider: {fileID: 1939913902}
   handle: {fileID: 2110341453}
   handleSpeed: {x: 3, y: 3}
-  screen: {fileID: 1492600869}
   itemsGenerator: {fileID: 1117542248}
-  deposit: 0
 --- !u!1 &1412607339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4546,7 +4546,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &1799849220 stripped
@@ -4862,7 +4862,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &1912660855 stripped
@@ -5182,7 +5182,7 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
 --- !u!4 &2058403695 stripped
@@ -5579,6 +5579,6 @@ PrefabInstance:
     - target: {fileID: 4639904769499099039, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
       propertyPath: otomat
       value: 
-      objectReference: {fileID: 1371245719}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aaa6c294010364eb495ce3a5309cc6, type: 3}
