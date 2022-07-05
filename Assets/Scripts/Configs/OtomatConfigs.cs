@@ -22,15 +22,22 @@ public class OtomatConfigs: Configurable
         public float duration = 0;
         public string stateName;
         public Otomat.State state;
-        public string stateStartSfx = "";
-        public string stateLoopSfx = "";
-        public string stateEndSfx = "";
+        public string startSound = "";
+        public string loopSound = "";
+        public string endSound = "";
 
         public void SetState(){
             if(System.Enum.TryParse<Otomat.State>(stateName, true, out Otomat.State result)) state = result;
             else state = Otomat.State.NO_MONEY;
         }
     }
+
+    [System.Serializable]
+    public class SoundKeys{
+        public string key;
+        public string value;
+    }
+    [SerializeField] string key;
     [SerializeField] string typeName;
     [SerializeField] StateProperties[] properties;
     [SerializeField] Dictionary<Otomat.State, StateProperties> propertiesDictionary = new Dictionary<Otomat.State, StateProperties>();
@@ -39,6 +46,7 @@ public class OtomatConfigs: Configurable
     [SerializeField] int sizeX = 1;
     [SerializeField] int sizeY = 1;
     [SerializeField] float durationBetweenCoins;
+    [SerializeField] SoundKeys[] sfx;
     Type type;
     public void CreateDictionaries(){}
 

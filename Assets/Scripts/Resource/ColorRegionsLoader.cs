@@ -21,6 +21,7 @@ public class ColorRegion{
 }
 public class ColorRegionsLoader
 {
+    const long MAX_SIZE = 20000;
     public static void LoadRegions(string path, Dictionary<string, List<ColorRegion>> items){
         string[] extensions = {".png"};
         StreamingAssetLoader<List<ColorRegion>>.Properties defaults = new StreamingAssetLoader<List<ColorRegion>>.Properties();
@@ -36,6 +37,10 @@ public class ColorRegionsLoader
         Texture2D targetTexture = new Texture2D(1, 1, UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm, UnityEngine.Experimental.Rendering.TextureCreationFlags.Crunch);
         byte[] imBytes = File.ReadAllBytes(filePath);
         targetTexture.LoadImage(imBytes);
+        long size = targetTexture.width * targetTexture.height;
+        if(size > MAX_SIZE){
+            throw new System.Exception(string.Format("File: {0}\n Color region size too big ({1})! (MAX SIZE: {2})", filePath, size, MAX_SIZE));
+        }
         Color[] cols = targetTexture.GetPixels();
         for(int i = 0; i < cols.Length; i++){
             Color c = cols[i];

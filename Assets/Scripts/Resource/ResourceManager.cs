@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class ResourceManager
 {
@@ -11,40 +12,65 @@ public class ResourceManager
     static Dictionary<string, Locales> languages = new Dictionary<string, Locales>();
     static Dictionary<string, List<ColorRegion>> regions = new Dictionary<string, List<ColorRegion>>();
     static Dictionary<string, OtomatConfigs> otomats = new Dictionary<string, OtomatConfigs>();
+    static Dictionary<string, LocationProperties> locations = new Dictionary<string, LocationProperties>();
+
+    static void ClearAll(){
+        sprites.Clear();
+        sfx.Clear();
+        languages.Clear();
+        regions.Clear();
+        otomats.Clear();
+        locations.Clear();
+    }
     
-    public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text){
+    public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text, System.Action<System.Exception> exceptionHandler){
         if(loading) yield break;
         loading = true;
 
+        ClearAll();
         float time = 0.5f;
         UIObject.SetActive(true);
-        text.text = "Loading configs...";
-        yield return null;
-        Configs.LoadConfigurables(path+"/configs");
-        yield return new WaitForSeconds(time);
-        text.text = "Loading images...";
-        yield return null;
-        ImageLoader.LoadImages(path+"/images", sprites);
-        yield return new WaitForSeconds(time);
-        text.text = "Loading SFX...";
-        yield return null;
-        AudioLoader.LoadSFX(path+"/sfx", sfx);
-        yield return new WaitForSeconds(time);
-        text.text = "Loading locales...";
-        yield return null;
-        LocalesLoader.LoadLocales(path+"/locales", languages);
-        yield return new WaitForSeconds(time);
-        text.text = "Loading regions...";
-        yield return null;
-        ColorRegionsLoader.LoadRegions(path+"/locations", regions);
-        yield return new WaitForSeconds(time);
-        text.text = "Loading automatas...";
-        yield return null;
-        OtomatLoader.LoadOtomats(path+"/automatas", otomats);
-        UIObject.SetActive(false);
 
+        yield return SetPrompt(text, "Loading configs...", time);
+        if(!TryLoad(() => Configs.LoadConfigurables(path + "/configs"), exceptionHandler)) yield break;
+        
+        yield return SetPrompt(text, "Loading images...", time);
+        if(!TryLoad(() => ImageLoader.LoadImages(path+"/images", sprites), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading SFX...", time);
+        if(!TryLoad(() => AudioLoader.LoadSFX(path+"/sfx", sfx), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading locales...", time);
+        if(!TryLoad(() => LocalesLoader.LoadLocales(path+"/locales", languages), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading regions...", time);
+        if(!TryLoad(() => ColorRegionsLoader.LoadRegions(path+"/locations", regions), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading automatas...", time);
+        if(!TryLoad(() => OtomatLoader.LoadOtomats(path+"/automatas", otomats), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading locations...", time);
+        if(!TryLoad(() => LocationsLoader.LoadLocations(path+"/locations", locations), exceptionHandler)) yield break;
+
+        UIObject.SetActive(false);
         loading = false;
         yield return null;
+    }
+
+    static IEnumerator SetPrompt(TMPro.TextMeshProUGUI text, string s, float seconds){
+        text.text = s;
+        yield return new WaitForSeconds(seconds);
+    }
+
+    static bool TryLoad(Action method, Action<Exception> exceptionHandler){
+        try{
+            method.Invoke();
+        } catch(Exception e){
+            loading = false;
+            exceptionHandler.Invoke(e);
+            return false;
+        }
+        return true;
     }
 
     public static T LoadAsset<T>(string path) where T:class{
@@ -53,6 +79,7 @@ public class ResourceManager
         else if(typeof(T) == typeof(Locales))               return ReturnResult<Locales>(languages, path) as T;
         else if(typeof(T) == typeof(List<ColorRegion>))     return ReturnResult<List<ColorRegion>>(regions, path) as T;
         else if(typeof(T) == typeof(OtomatConfigs))     return ReturnResult<OtomatConfigs>(otomats, path) as T;
+        else if(typeof(T) == typeof(LocationProperties))     return ReturnResult<LocationProperties>(locations, path) as T;
         else return null;
     }
 
@@ -63,6 +90,7 @@ public class ResourceManager
         else if(typeof(T) == typeof(Locales)) targetKeys = languages.Keys.ToArray();
         else if(typeof(T) == typeof(List<ColorRegion>)) targetKeys = regions.Keys.ToArray();
         else if(typeof(T) == typeof(OtomatConfigs)) targetKeys = otomats.Keys.ToArray();
+        else if(typeof(T) == typeof(LocationProperties)) targetKeys = locations.Keys.ToArray();
         string[] keys = targetKeys.Where((a) => (
             !includeSubDirectories ?
             a.IndexOf(path) == 0 && a.Split(path)[1].Count((c) => c == '/') <= 1 :

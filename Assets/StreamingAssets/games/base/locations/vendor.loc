@@ -1,14 +1,4 @@
 {
     "background":"Backgrounds/vendorbg",
-    "cameraColor":"#000000",
-    "otomats":[
-        {
-            "key":"yemek",
-            "color":"#ff0000"
-        },
-        {
-            "key":"icecek",
-            "color":"#0006ff"
-        }
-    ]
+    "cameraColor":"#000000"
 }
