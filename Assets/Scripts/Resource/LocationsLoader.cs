@@ -1,10 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class CustomStudentProperties{
+    
+}
+
 public class LocationProperties{
     public string locationKey;
     public string background;
+    public string ambientSound;
     public string cameraColor;
+    public string studentColor;
 }
 
 public class LocationsLoader{

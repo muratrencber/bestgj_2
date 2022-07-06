@@ -12,6 +12,7 @@ public class ResourceManager
     static Dictionary<string, Locales> languages = new Dictionary<string, Locales>();
     static Dictionary<string, List<ColorRegion>> regions = new Dictionary<string, List<ColorRegion>>();
     static Dictionary<string, OtomatConfigs> otomats = new Dictionary<string, OtomatConfigs>();
+    static Dictionary<string, StudentConfigs> students = new Dictionary<string, StudentConfigs>();
     static Dictionary<string, LocationProperties> locations = new Dictionary<string, LocationProperties>();
 
     static void ClearAll(){
@@ -20,6 +21,7 @@ public class ResourceManager
         languages.Clear();
         regions.Clear();
         otomats.Clear();
+        students.Clear();
         locations.Clear();
     }
     
@@ -47,7 +49,10 @@ public class ResourceManager
         if(!TryLoad(() => ColorRegionsLoader.LoadRegions(path+"/locations", regions), exceptionHandler)) yield break;
 
         yield return SetPrompt(text, "Loading automatas...", time);
-        if(!TryLoad(() => OtomatLoader.LoadOtomats(path+"/automatas", otomats), exceptionHandler)) yield break;
+        if(!TryLoad(() => ConfigruableLoader<OtomatConfigs>.LoadConfigs(path+"/automatas", otomats), exceptionHandler)) yield break;
+
+        yield return SetPrompt(text, "Loading custom students...", time);
+        if(!TryLoad(() => ConfigruableLoader<StudentConfigs>.LoadConfigs(path+"/students", students), exceptionHandler)) yield break;
 
         yield return SetPrompt(text, "Loading locations...", time);
         if(!TryLoad(() => LocationsLoader.LoadLocations(path+"/locations", locations), exceptionHandler)) yield break;
@@ -79,6 +84,7 @@ public class ResourceManager
         else if(typeof(T) == typeof(Locales))               return ReturnResult<Locales>(languages, path) as T;
         else if(typeof(T) == typeof(List<ColorRegion>))     return ReturnResult<List<ColorRegion>>(regions, path) as T;
         else if(typeof(T) == typeof(OtomatConfigs))     return ReturnResult<OtomatConfigs>(otomats, path) as T;
+        else if(typeof(T) == typeof(StudentConfigs))     return ReturnResult<StudentConfigs>(students, path) as T;
         else if(typeof(T) == typeof(LocationProperties))     return ReturnResult<LocationProperties>(locations, path) as T;
         else return null;
     }
@@ -90,6 +96,7 @@ public class ResourceManager
         else if(typeof(T) == typeof(Locales)) targetKeys = languages.Keys.ToArray();
         else if(typeof(T) == typeof(List<ColorRegion>)) targetKeys = regions.Keys.ToArray();
         else if(typeof(T) == typeof(OtomatConfigs)) targetKeys = otomats.Keys.ToArray();
+        else if(typeof(T) == typeof(StudentConfigs)) targetKeys = students.Keys.ToArray();
         else if(typeof(T) == typeof(LocationProperties)) targetKeys = locations.Keys.ToArray();
         string[] keys = targetKeys.Where((a) => (
             !includeSubDirectories ?

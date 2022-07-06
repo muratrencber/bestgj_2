@@ -20,6 +20,7 @@ public class StudentConfigs: Configurable
         public string secondaryPart = "";
         public string target = "";
         public Type t;
+        public string sound;
 
         public string Evaluate(string input){
             if(secondaryPart == "")
@@ -27,9 +28,18 @@ public class StudentConfigs: Configurable
             return mainPart + input + secondaryPart;
         }
     }
-    [SerializeField] Dialogue[] dialogues;
+
+    [System.Serializable]
+    public class Like{
+        public string key;
+        public float value;
+    }
+    [SerializeField] string color;
+    [SerializeField] List<string> bodySources = new List<string>();
+    [SerializeField] List<Dialogue> dialogues = new List<Dialogue>();
     [SerializeField] float minLike, maxLike;
     [SerializeField] float winTolerance;
+    [SerializeField] Like[] overrideLikes;
 
     Dictionary<Dialogue.Type, List<Dialogue>> dialogueDictionary = new Dictionary<Dialogue.Type, List<Dialogue>>();
 
