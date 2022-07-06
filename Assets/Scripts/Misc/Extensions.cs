@@ -5,7 +5,7 @@ public static class Extensions
 {
     public static void DestroyChildren(this Transform t){
         for(int i = 0; i < t.childCount; i++)
-            GameObject.Destroy(t.gameObject);
+            GameObject.Destroy(t.GetChild(i).gameObject);
     }
 
     public static GameObject CreateEmptyChild(this Transform t){

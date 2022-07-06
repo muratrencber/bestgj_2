@@ -25,7 +25,7 @@ public class ResourceManager
         locations.Clear();
     }
     
-    public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text, System.Action<System.Exception> exceptionHandler){
+    public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text, Action<Exception> exceptionHandler, Action onFinished){
         if(loading) yield break;
         loading = true;
 
@@ -33,37 +33,40 @@ public class ResourceManager
         float time = 0.5f;
         UIObject.SetActive(true);
 
-        yield return SetPrompt(text, "Loading configs...", time);
+        yield return SetPrompt(text, "loading_configs", time);
         if(!TryLoad(() => Configs.LoadConfigurables(path + "/configs"), exceptionHandler)) yield break;
         
-        yield return SetPrompt(text, "Loading images...", time);
+        yield return SetPrompt(text, "loading_images", time);
         if(!TryLoad(() => ImageLoader.LoadImages(path+"/images", sprites), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading SFX...", time);
+        yield return SetPrompt(text, "loading_sfx", time);
         if(!TryLoad(() => AudioLoader.LoadSFX(path+"/sfx", sfx), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading locales...", time);
+        yield return SetPrompt(text, "loading_locales", time);
         if(!TryLoad(() => LocalesLoader.LoadLocales(path+"/locales", languages), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading regions...", time);
+        yield return SetPrompt(text, "loading_regions", time);
         if(!TryLoad(() => ColorRegionsLoader.LoadRegions(path+"/locations", regions), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading automatas...", time);
+        yield return SetPrompt(text, "loading_automata", time);
         if(!TryLoad(() => ConfigruableLoader<OtomatConfigs>.LoadConfigs(path+"/automatas", otomats), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading custom students...", time);
+        yield return SetPrompt(text, "loading_custom_students", time);
         if(!TryLoad(() => ConfigruableLoader<StudentConfigs>.LoadConfigs(path+"/students", students), exceptionHandler)) yield break;
 
-        yield return SetPrompt(text, "Loading locations...", time);
+        yield return SetPrompt(text, "loading_locations", time);
         if(!TryLoad(() => LocationsLoader.LoadLocations(path+"/locations", locations), exceptionHandler)) yield break;
 
         UIObject.SetActive(false);
         loading = false;
+
+        onFinished?.Invoke();
         yield return null;
     }
 
     static IEnumerator SetPrompt(TMPro.TextMeshProUGUI text, string s, float seconds){
-        text.text = s;
+        Locales.TryGetLineMain(s, out string locS);
+        text.text = locS;
         yield return new WaitForSeconds(seconds);
     }
 
@@ -89,7 +92,7 @@ public class ResourceManager
         else return null;
     }
 
-    public static T[] LoadAllAssets<T>(string path, bool includeSubDirectories = false) where T:class{
+    public static T[] LoadAllAssets<T>(string path="", bool includeSubDirectories = false) where T:class{
         string[] targetKeys = new string[0];
         if(typeof(T) == typeof(Sprite)) targetKeys = sprites.Keys.ToArray();
         else if(typeof(T) == typeof(AudioClip)) targetKeys = sfx.Keys.ToArray();
@@ -98,7 +101,7 @@ public class ResourceManager
         else if(typeof(T) == typeof(OtomatConfigs)) targetKeys = otomats.Keys.ToArray();
         else if(typeof(T) == typeof(StudentConfigs)) targetKeys = students.Keys.ToArray();
         else if(typeof(T) == typeof(LocationProperties)) targetKeys = locations.Keys.ToArray();
-        string[] keys = targetKeys.Where((a) => (
+        string[] keys = path == "" ? targetKeys : targetKeys.Where((a) => (
             !includeSubDirectories ?
             a.IndexOf(path) == 0 && a.Split(path)[1].Count((c) => c == '/') <= 1 :
             a.IndexOf(path) == 0

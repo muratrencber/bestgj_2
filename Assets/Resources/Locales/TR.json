@@ -1,0 +1,73 @@
+{
+    "name":"Türkçe",
+    "lines":[
+        {
+            "key":"select_game",
+            "value":"Lütfen oyun seçiniz"
+        },
+        {
+            "key":"select_language",
+            "value":"Lütfen dil seçiniz"
+        },
+        {
+            "key":"ok_prompt",
+            "value":"Tamam"
+        },
+        {
+            "key":"error_prompt",
+            "value":"Bir hata oluştu! Mesaj:\n{}"
+        },
+        {
+            "key":"loading_configs",
+            "value":"Ayarlamalar yükleniyor..."
+        },
+        {
+            "key":"loading_sfx",
+            "value":"Sesler yükleniyor..."
+        },
+        {
+            "key":"loading_locales",
+            "value":"Diller yükleniyor..."
+        },
+        {
+            "key":"loading_regions",
+            "value":"Bölgeler yükleniyor..."
+        },
+        {
+            "key":"loading_automata",
+            "value":"Otomatlar yükleniyor..."
+        },
+        {
+            "key":"loading_custom_students",
+            "value":"Özel öğrenciler yükleniyor..."
+        },
+        {
+            "key":"loading_locations",
+            "value":"Mekanlar yükleniyor..."
+        },
+        {
+            "key":"loading_images",
+            "value":"Resimler yükleniyor..."
+        },
+        {
+            "key":"button_game_select",
+            "value":"Oyun Seç"
+        },
+        {
+            "key":"button_options",
+            "value":"Ayarlar"
+        },
+        {
+            "key":"button_credits",
+            "value":"Hazırlayanlar"
+        },
+        {
+            "key":"button_back",
+            "value":"Geri"
+        },
+        {
+            "key":"credits",
+            "value":"AUTOMATA\n\nBEST Game Jam için yapılmıştır.\n(Jam sonrası versiyonu)\n\nHazırlayanlar:\n\nCan Çelik\nMeriç Bağlayan\nMurat Rençber\nUmut Demir\n\n2022, Sunstruck"
+        }
+    ]
+}

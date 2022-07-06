@@ -15,6 +15,7 @@ public class OtomatConfigs: Configurable
     public int SizeX {get{return sizeX;}}
     public int SizeY {get{return sizeY;}}
     public float DurationeBetweenCoins {get{return durationBetweenCoins;}}
+    public bool AutoSize {get{return autoSize;}}
 
     [System.Serializable]
     public class StateProperties{
@@ -47,6 +48,7 @@ public class OtomatConfigs: Configurable
     [SerializeField] int sizeY = 1;
     [SerializeField] float durationBetweenCoins;
     [SerializeField] SoundKeys[] sfx;
+    [SerializeField] bool autoSize = true;
     Type type;
     public void CreateDictionaries(){}
 

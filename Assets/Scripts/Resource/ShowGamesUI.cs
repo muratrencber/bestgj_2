@@ -7,7 +7,7 @@ using TMPro;
 public class ShowGamesUI : MonoBehaviour
 {
     const float PROMPT_MIN_SECONDS = 0.5f;
-
+    [SerializeField] string languageWindowKey;
     [SerializeField] Transform container;
     [SerializeField] GameObject loadUI, popupUI;
     [SerializeField] TMPro.TextMeshProUGUI loadText, popupText;
@@ -28,13 +28,18 @@ public class ShowGamesUI : MonoBehaviour
             TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TextMeshProUGUI>();
             Button b = prefabInstance.GetComponent<Button>();
             if(text) text.text = prop.DisplayName;
-            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop.GamePath, loadUI, loadText, HandleException)));
+            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop.GamePath, loadUI, loadText, HandleException, ShowLanguages)));
         }
+    }
+
+    void ShowLanguages(){
+        UIWindow.ChangeToWindow(languageWindowKey);
     }
 
     void HandleException(System.Exception e){
         loadUI.SetActive(false);
         popupUI.SetActive(true);
-        popupText.text = "ERROR: "+e.Message;
+        Locales.TryGetLineMain("error_prompt", out string err, e.Message);
+        popupText.text = err;
     }
 }
