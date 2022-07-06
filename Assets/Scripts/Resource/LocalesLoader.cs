@@ -14,6 +14,8 @@ public class LocalesLoader
                                 StreamingAssetLoader<Locales>.Properties p,
                                 StreamingAssetLoader<Locales>.PropertiesList pl,
                                 StreamingAssetLoader<Locales> sal){
-        return JsonUtility.FromJson<Locales>(System.IO.File.ReadAllText(filePath));
+        Locales l = JsonUtility.FromJson<Locales>(System.IO.File.ReadAllText(filePath));
+        l.Init(keyName);
+        return l;
     }
 }
