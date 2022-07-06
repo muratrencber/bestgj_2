@@ -109,6 +109,7 @@ public class StreamingAssetLoader<T>
         Queue<string> dirPaths = new Queue<string>();
         string directoryPath = mainPath.Replace("\\","/");
         dirPaths.Enqueue(directoryPath);
+        if(!Directory.Exists(directoryPath)) throw new System.Exception("Directory " +directoryPath+ " does not exist!");
         while(dirPaths.Count > 0){
             string dirp = dirPaths.Dequeue();
             string[] filePaths = Directory.GetFiles(dirp);

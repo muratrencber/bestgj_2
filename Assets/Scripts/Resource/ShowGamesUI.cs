@@ -27,7 +27,7 @@ public class ShowGamesUI : MonoBehaviour
             GameObject prefabInstance = Instantiate(prefab, container);
             TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TextMeshProUGUI>();
             Button b = prefabInstance.GetComponent<Button>();
-            if(text) text.text = prop.GameName;
+            if(text) text.text = prop.DisplayName;
             if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop.GamePath, loadUI, loadText, HandleException)));
         }
     }
