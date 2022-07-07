@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +17,8 @@ public class LocationProperties{
 public class LocationsLoader{
 
     
-    public static void LoadLocations(string path, Dictionary<string, LocationProperties> items){
+    public static void LoadLocations(string path, IDictionary itemsInterface){
+        Dictionary<string, LocationProperties> items = itemsInterface as Dictionary<string, LocationProperties>;
         string[] extensions = {".loc"};
         StreamingAssetLoader<LocationProperties>.Properties defaults = new StreamingAssetLoader<LocationProperties>.Properties();
         StreamingAssetLoader<LocationProperties> sal = new StreamingAssetLoader<LocationProperties>(extensions, ProcessFile, defaults, items);

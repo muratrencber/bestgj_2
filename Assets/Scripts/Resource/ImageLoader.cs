@@ -8,7 +8,9 @@ using System;
 public class ImageLoader
 {
     static ulong totalPixels;
-    public static void LoadImages(string path, Dictionary<string, Sprite> items){
+    public static void LoadImages(string path, IDictionary itemsInterface){
+        Dictionary<string, Sprite> items = itemsInterface as Dictionary<string, Sprite>;
+        
         string[] extensions = {".png",".jpg",".jpeg",".bmp"};
         StreamingAssetLoader<Sprite>.Properties defaults = new StreamingAssetLoader<Sprite>.Properties();
         defaults.AddProperty("maxSize", 2048);

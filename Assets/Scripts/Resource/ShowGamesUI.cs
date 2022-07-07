@@ -33,7 +33,7 @@ public class ShowGamesUI : MonoBehaviour
     }
 
     void ShowLanguages(){
-        UIWindow.ChangeToWindow(languageWindowKey);
+        WindowChanger.ChangeWindow(languageWindowKey);
     }
 
     void HandleException(System.Exception e){

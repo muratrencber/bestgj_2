@@ -6,56 +6,91 @@ using System;
 
 public class ResourceManager
 {
+    class DictionaryProperties{
+        public string folderName;
+        public string loadLangKey;
+        public Action<string, IDictionary> loadingAction;
+        public Action<string> nonDictLoadingAction;
+
+        public DictionaryProperties(string fName, string lKey, Action<string, IDictionary> act){
+            folderName = fName;
+            loadLangKey = lKey;
+            loadingAction = act;
+        }
+
+        public DictionaryProperties(string fName, string lKey, Action<string> act){
+            folderName = fName;
+            loadLangKey = lKey;
+            nonDictLoadingAction = act;
+        }
+    }
+
+    static bool initialized = false;
     static bool loading = false;
-    static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
-    static Dictionary<string, AudioClip> sfx = new Dictionary<string, AudioClip>();
-    static Dictionary<string, Locales> languages = new Dictionary<string, Locales>();
-    static Dictionary<string, List<ColorRegion>> regions = new Dictionary<string, List<ColorRegion>>();
-    static Dictionary<string, OtomatConfigs> otomats = new Dictionary<string, OtomatConfigs>();
-    static Dictionary<string, StudentConfigs> students = new Dictionary<string, StudentConfigs>();
-    static Dictionary<string, LocationProperties> locations = new Dictionary<string, LocationProperties>();
+
+    static Dictionary<Type, IDictionary> dictionaries = new Dictionary<Type, IDictionary>();
+    static Dictionary<Type, DictionaryProperties> dictProperties = new Dictionary<Type, DictionaryProperties>();
+
+    static void Initialize(bool force = false){
+        if(initialized && !force) return;
+
+        ClearAll();
+
+        CreateDictionaryOfType<Configurable>(
+            new DictionaryProperties("configs", "loading_configs", ConfigruableLoader<Configurable>.LoadConfigs)
+        );
+        CreateDictionaryOfType<Sprite>(
+            new DictionaryProperties("images", "loading_images", ImageLoader.LoadImages)
+        );
+        CreateDictionaryOfType<AudioClip>(
+            new DictionaryProperties("sfx", "loading_sfx", AudioLoader.LoadSFX)
+        );
+        CreateDictionaryOfType<Locales>(
+            new DictionaryProperties("locales", "loading_locales", LocalesLoader.LoadLocales)
+        );
+        CreateDictionaryOfType<List<ColorRegion>>(
+            new DictionaryProperties("locations", "loading_regions", ColorRegionsLoader.LoadRegions)
+        );
+        CreateDictionaryOfType<OtomatConfigs>(
+            new DictionaryProperties("automata", "loading_automata", ConfigruableLoader<OtomatConfigs>.LoadConfigs)
+        );
+        CreateDictionaryOfType<StudentConfigs>(
+            new DictionaryProperties("students", "loading_custom_students", ConfigruableLoader<StudentConfigs>.LoadConfigs)
+        );
+        CreateDictionaryOfType<LocationProperties>(
+            new DictionaryProperties("locations", "loading_locations", LocationsLoader.LoadLocations)
+        );
+
+        initialized = true;
+    }
+
+    static void CreateDictionaryOfType<T>(DictionaryProperties dctProps){
+        Type t = typeof(T);
+        if(!dictionaries.ContainsKey(t)){
+            Dictionary<string, T> newDct = new Dictionary<string, T>();
+            dictionaries.TryAdd(t, newDct);
+            dictProperties.TryAdd(t, dctProps);
+        }
+    }
 
     static void ClearAll(){
-        sprites.Clear();
-        sfx.Clear();
-        languages.Clear();
-        regions.Clear();
-        otomats.Clear();
-        students.Clear();
-        locations.Clear();
+        foreach(IDictionary dct in dictionaries.Values) dct.Clear();
+        dictionaries.Clear();
+        dictProperties.Clear();
     }
     
     public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text, Action<Exception> exceptionHandler, Action onFinished){
         if(loading) yield break;
         loading = true;
-
-        ClearAll();
+        Initialize();
         float time = 0.5f;
         UIObject.SetActive(true);
-
-        yield return SetPrompt(text, "loading_configs", time);
-        if(!TryLoad(() => Configs.LoadConfigurables(path + "/configs"), exceptionHandler)) yield break;
-        
-        yield return SetPrompt(text, "loading_images", time);
-        if(!TryLoad(() => ImageLoader.LoadImages(path+"/images", sprites), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_sfx", time);
-        if(!TryLoad(() => AudioLoader.LoadSFX(path+"/sfx", sfx), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_locales", time);
-        if(!TryLoad(() => LocalesLoader.LoadLocales(path+"/locales", languages), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_regions", time);
-        if(!TryLoad(() => ColorRegionsLoader.LoadRegions(path+"/locations", regions), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_automata", time);
-        if(!TryLoad(() => ConfigruableLoader<OtomatConfigs>.LoadConfigs(path+"/automatas", otomats), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_custom_students", time);
-        if(!TryLoad(() => ConfigruableLoader<StudentConfigs>.LoadConfigs(path+"/students", students), exceptionHandler)) yield break;
-
-        yield return SetPrompt(text, "loading_locations", time);
-        if(!TryLoad(() => LocationsLoader.LoadLocations(path+"/locations", locations), exceptionHandler)) yield break;
+        foreach(KeyValuePair<Type, IDictionary> typDct in dictionaries){
+            DictionaryProperties dctProps = dictProperties[typDct.Key];
+            IDictionary dct = typDct.Value;
+            yield return SetPrompt(text, dctProps.loadLangKey, time);
+            if(!TryLoad(dctProps.loadingAction, path + "/" + dctProps.folderName, dct, exceptionHandler)) yield break;
+        }
 
         UIObject.SetActive(false);
         loading = false;
@@ -70,9 +105,9 @@ public class ResourceManager
         yield return new WaitForSeconds(seconds);
     }
 
-    static bool TryLoad(Action method, Action<Exception> exceptionHandler){
+    static bool TryLoad(Action<string, IDictionary> method, string path, IDictionary dct, Action<Exception> exceptionHandler){
         try{
-            method.Invoke();
+            method.Invoke(path, dct);
         } catch(Exception e){
             loading = false;
             exceptionHandler.Invoke(e);
@@ -81,37 +116,40 @@ public class ResourceManager
         return true;
     }
 
-    public static T LoadAsset<T>(string path) where T:class{
-        if(typeof(T) == typeof(Sprite))                     return ReturnResult<Sprite>(sprites, path) as T;
-        else if(typeof(T) == typeof(AudioClip))             return ReturnResult<AudioClip>(sfx, path) as T;
-        else if(typeof(T) == typeof(Locales))               return ReturnResult<Locales>(languages, path) as T;
-        else if(typeof(T) == typeof(List<ColorRegion>))     return ReturnResult<List<ColorRegion>>(regions, path) as T;
-        else if(typeof(T) == typeof(OtomatConfigs))     return ReturnResult<OtomatConfigs>(otomats, path) as T;
-        else if(typeof(T) == typeof(StudentConfigs))     return ReturnResult<StudentConfigs>(students, path) as T;
-        else if(typeof(T) == typeof(LocationProperties))     return ReturnResult<LocationProperties>(locations, path) as T;
-        else return null;
+    static Dictionary<string, T> GetDict<T>(){
+        if(dictionaries.TryGetValue(typeof(T), out IDictionary dct)){
+            Dictionary<string, T> convertedDct = dct as Dictionary<string, T>;
+            if(convertedDct != null) return convertedDct;
+        }
+        return null;
     }
+
+    public static T LoadAsset<T>(string path) where T:class{
+        Dictionary<string, T> dct = GetDict<T>();
+        if(dct != null && dct.TryGetValue(path, out T val)) return val;
+        return null;
+    }
+
 
     public static T[] LoadAllAssets<T>(string path="", bool includeSubDirectories = false) where T:class{
         string[] targetKeys = new string[0];
-        if(typeof(T) == typeof(Sprite)) targetKeys = sprites.Keys.ToArray();
-        else if(typeof(T) == typeof(AudioClip)) targetKeys = sfx.Keys.ToArray();
-        else if(typeof(T) == typeof(Locales)) targetKeys = languages.Keys.ToArray();
-        else if(typeof(T) == typeof(List<ColorRegion>)) targetKeys = regions.Keys.ToArray();
-        else if(typeof(T) == typeof(OtomatConfigs)) targetKeys = otomats.Keys.ToArray();
-        else if(typeof(T) == typeof(StudentConfigs)) targetKeys = students.Keys.ToArray();
-        else if(typeof(T) == typeof(LocationProperties)) targetKeys = locations.Keys.ToArray();
+
+        Dictionary<string,T> dct = GetDict<T>();
+        if(dct != null) targetKeys = dct.Keys.ToArray();
+
         string[] keys = path == "" ? targetKeys : targetKeys.Where((a) => (
             !includeSubDirectories ?
             a.IndexOf(path) == 0 && a.Split(path)[1].Count((c) => c == '/') <= 1 :
             a.IndexOf(path) == 0
 
         )).ToArray();
+
         List<T> result = new List<T>();
         foreach(string s in keys){
             T res = LoadAsset<T>(s);
             if(res != null) result.Add(res);
         }
+
         return result.ToArray();
     }
 
@@ -120,6 +158,5 @@ public class ResourceManager
         return null;
     }
 
-    public static List<Sprite> GetAllSprites()=>sprites.Values.ToList();
     public static T[] GetAll<T>() where T:class => LoadAllAssets<T>("",true);
 }

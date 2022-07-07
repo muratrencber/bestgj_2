@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
@@ -22,7 +23,8 @@ public class ColorRegion{
 public class ColorRegionsLoader
 {
     const long MAX_SIZE = 20000;
-    public static void LoadRegions(string path, Dictionary<string, List<ColorRegion>> items){
+    public static void LoadRegions(string path, IDictionary itemsInterface){
+        Dictionary<string, List<ColorRegion>> items = itemsInterface as Dictionary<string, List<ColorRegion>>;
         string[] extensions = {".png"};
         StreamingAssetLoader<List<ColorRegion>>.Properties defaults = new StreamingAssetLoader<List<ColorRegion>>.Properties();
         StreamingAssetLoader<List<ColorRegion>> sal = new StreamingAssetLoader<List<ColorRegion>>(extensions, ProcessFile, defaults, items);

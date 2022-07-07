@@ -66,6 +66,26 @@
             "value":"Geri"
         },
         {
+            "key":"options_mod_select",
+            "value":"Mod klasörü seç"
+        },
+        {
+            "key":"options_mod_compress",
+            "value":"Resimleri sıkıştır"
+        },
+        {
+            "key":"options_mod_folder",
+            "value":"Çıktıyı yeni klasörde depola"
+        },
+        {
+            "key":"options_mod_keep",
+            "value":"Eski resim dosyalarını tut"
+        },
+        {
+            "key":"options_mod_optimize",
+            "value":"Optimize et"
+        },
+        {
             "key":"credits",
             "value":"AUTOMATA\n\nBEST Game Jam için yapılmıştır.\n(Jam sonrası versiyonu)\n\nHazırlayanlar:\n\nCan Çelik\nMeriç Bağlayan\nMurat Rençber\nUmut Demir\n\n2022, Sunstruck"
         }

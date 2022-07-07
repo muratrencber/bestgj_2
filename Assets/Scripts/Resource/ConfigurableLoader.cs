@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ConfigruableLoader<T> where T:Configurable
 {
-    public static void LoadConfigs(string path, Dictionary<string, T> items){
+    public static void LoadConfigs(string path, IDictionary itemsInterface){
+        Dictionary<string, T> items = itemsInterface as Dictionary<string, T>;
         string[] extensions = {".json"};
         StreamingAssetLoader<T>.Properties defaults = new StreamingAssetLoader<T>.Properties();
         StreamingAssetLoader<T> sal = new StreamingAssetLoader<T>(extensions, ProcessFile, defaults, items);

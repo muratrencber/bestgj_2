@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShowModLanguages : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class ShowModLanguages : MonoBehaviour
             UnityEngine.UI.Button b = prefabInstance.GetComponent<UnityEngine.UI.Button>();
             if(text) text.text = loc.Name;
             if(b) b.onClick.AddListener(() => {
-
+                Locales.SetModKey(loc.LanguageKey);
+                SceneManager.LoadScene("CustomGame");
             });
         }
     }

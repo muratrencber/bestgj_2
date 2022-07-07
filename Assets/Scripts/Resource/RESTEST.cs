@@ -13,7 +13,7 @@ public class RESTEST : MonoBehaviour
     public void SetImage(){
         Sprite s =  ResourceManager.LoadAsset<Sprite>(path);
         sr.sprite = s;
-        List<Sprite> allsss = ResourceManager.GetAllSprites();
+        Sprite[] allsss = ResourceManager.GetAll<Sprite>();
         foreach(Sprite sn in allsss) texes.Add(sn.texture);
     }
 

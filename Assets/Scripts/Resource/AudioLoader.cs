@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioLoader
 {
-    public static void LoadSFX(string path, Dictionary<string, AudioClip> items){
+    public static void LoadSFX(string path, IDictionary itemsInterface){
+        Dictionary<string, AudioClip> items = itemsInterface as Dictionary<string, AudioClip>;
         string[] extensions = {".wav"};
         StreamingAssetLoader<AudioClip>.Properties defaults = new StreamingAssetLoader<AudioClip>.Properties();
         StreamingAssetLoader<AudioClip> sal = new StreamingAssetLoader<AudioClip>(extensions, ProcessFile, defaults, items);

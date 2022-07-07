@@ -9,6 +9,7 @@ public class Locales
     public static string ModLanguageKey {get{return modLanguageKey;}}
     
     public string Name {get{return name;}}
+    public string LanguageKey{get{return langKey;}}
 
     static Locales mainLocales;
     static Locales modLocales;
@@ -25,12 +26,12 @@ public class Locales
     Dictionary<string, string> lineDict = new Dictionary<string, string>();
     string langKey;
 
-    static void SetMainKey(string newKey){
+    public static void SetMainKey(string newKey){
         mainLanguageKey = newKey;
         PlayerPrefs.SetString("language", newKey);
     }
 
-    static void SetModKey(string newKey) => modLanguageKey = newKey;
+    public static void SetModKey(string newKey) => modLanguageKey = newKey;
 
     static void LoadMainLocales(){
         if(mainLocales != null) return;
