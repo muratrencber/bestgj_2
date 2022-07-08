@@ -1,0 +1,557 @@
+{
+    "images": [
+        {
+            "key": "Backgrounds/classbg",
+            "width": 2048,
+            "height": 1152,
+            "format": 10,
+            "mipCount": 1
+        },
+        {
+            "key": "Backgrounds/vendorbg",
+            "width": 2048,
+            "height": 1101,
+            "format": 3,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/brobis",
+            "width": 512,
+            "height": 257,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/caker_gofret",
+            "width": 511,
+            "height": 148,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/cannane",
+            "width": 512,
+            "height": 153,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/citos",
+            "width": 138,
+            "height": 512,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/cizim_vic",
+            "width": 512,
+            "height": 199,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/cubuk_kraker",
+            "width": 399,
+            "height": 512,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/minder",
+            "width": 512,
+            "height": 472,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/nilka",
+            "width": 512,
+            "height": 214,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/poritos",
+            "width": 297,
+            "height": 512,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/tadin_bar",
+            "width": 511,
+            "height": 168,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/twitter",
+            "width": 511,
+            "height": 176,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/utku",
+            "width": 512,
+            "height": 187,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "ItemSprites/yaram",
+            "width": 511,
+            "height": 202,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/0",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/1",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/2",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/3",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/4",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/5",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/6",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/7",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/8",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "Numbers/9",
+            "width": 122,
+            "height": 130,
+            "format": 5,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_CXr69r3J6HfxEHNL",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_dSQMITM8C45xrljS",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_dXCYPaQeBHTTYYwM",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_gYg7bFHPjrNk9ke8",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_INBbtQeEKDd8Bm2s",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_jiwmLFafweYEa3gi",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_N7ALUUznOJcGKs4t",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/body/all/i_w2pv9idkgY5Rxijh",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_1F8Kh0aGJV6YdWf5",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_5PVgmIHLw27CbX7Z",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_6c1B9rPgGOVhq7zy",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_AfC8HZOJgEk7jhzN",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_BM23iTp9hfN5q8xQ",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_i9zJiBiKz4rjO5mm",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_VwJTW6ZOlHAdc79b",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_zkTkgHms69fX55ye",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/cloth/all/i_ZU0oS4oQNAwiy2We",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_5kVseaHUln9Atblo",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_hagveCqBQRFYEngf",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_l6YZkoiFD0q20OUG",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_lCAsL0jsDhiRBb1r",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_msQTmroT79fxivnx",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_PNIm0TVshyf3jaXW",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_QNiNR0To35LzWs63",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_UYSLRH9rDG5FZUNi",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/all/i_YibNKc9xAf79BKSs",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/female/i_0DqsRtLu099wg8ps",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/female/i_IqtdIJYUgG7tvfXP",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/female/i_miHE5o5BS304Aysv",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eye/female/i_uaB5DB09RfHiHw2c",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eyebrow/all/i_6BHdv5iDigbxXYcZ",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eyebrow/all/i_mMLCSxo4cAqns15i",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eyebrow/all/i_UJQ5G1RJaztqdgQj",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/eyebrow/all/i_y7BY601JVcGEI00L",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/female/i_2EneBGKGw2NyNKiV",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/female/i_2gz4mG9zm3vMp55D",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/female/i_BR0dxD0PeIJe3ejA",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/female/i_lf2w7pYEQDcPs83Q",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/male/i_EXt3ZVwxSbUTc8eC",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/male/i_F2iLhEcGYjYCL3Dp",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/male/i_LP9ItbRMGnVxykTy",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/hair/male/i_MM5RQfxfBjQMBffm",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_5JsrhynEj9dvGBBQ",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_62sR2ydIF4CLwgWI",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_7VX16T293wiJXCDP",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_huVWNLX5xcr6ioKa",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_iZQG4vHhiWBqdOcI",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_LNOU0KHogDfeEE1I",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_lXfzonBbaU4iBwv4",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/mouth/all/i_SdP1Ks5rMn4auNyl",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/nose/all/i_aYVViETySmmwW5FC",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/nose/all/i_gzofhxCYAstdM8MU",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/nose/all/i_MC7V5eE6H1otNfK0",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        },
+        {
+            "key": "CharacterAssets/nose/all/i_mPEf0Ic2uhr6ljXy",
+            "width": 600,
+            "height": 600,
+            "format": 12,
+            "mipCount": 1
+        }
+    ]
+}

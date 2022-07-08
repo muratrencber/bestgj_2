@@ -2,13 +2,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToggleWatcher : MonoBehaviour
+public class ToggleWatcher
 {
-    [SerializeField] List<Toggle> targets = new List<Toggle>();
-    [SerializeField] bool enableWhenToggled = true;
-    [SerializeField] GameObject targetObject;
+    List<Toggle> targets = new List<Toggle>();
+    bool enableWhenToggled = true;
+    GameObject targetObject;
 
-    void Update(){
+    public ToggleWatcher(List<Toggle> targets, bool enableWhenToggled, GameObject targetObject){
+        if(targets != null) this.targets = targets;
+        this.enableWhenToggled = enableWhenToggled;
+        this.targetObject = targetObject;
+    }
+
+    public void Update(){
         bool isOn = true;
         foreach(Toggle t in targets){
             if(!t.isOn){

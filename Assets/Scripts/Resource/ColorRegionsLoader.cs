@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+
+[System.Serializable]
+public class ColorRegions{
+    public List<ColorRegion> regions = new List<ColorRegion>();
+}
+
+[System.Serializable]
 public class ColorRegion{
     public Color color;
     public int topLeft, bottomRight;
@@ -30,6 +37,27 @@ public class ColorRegionsLoader
         StreamingAssetLoader<List<ColorRegion>> sal = new StreamingAssetLoader<List<ColorRegion>>(extensions, ProcessFile, defaults, items);
         sal.BeginLoad(path);
     }
+
+    public static void OptimizeRegions(string path, string targetPath){
+        Dictionary<string, List<ColorRegion>> regions = new Dictionary<string, List<ColorRegion>>();
+        LoadRegions(path, regions);
+        foreach(KeyValuePair<string, List<ColorRegion>> kvp in regions){
+            ColorRegions cregs = new ColorRegions();
+            cregs.regions = kvp.Value;
+            
+
+            string fullTargetDir =  path;
+            if(kvp.Key.Contains("/")){
+                string withoutFileName = kvp.Key.Substring(0, kvp.Key.LastIndexOf("/"));
+                fullTargetDir += withoutFileName;
+            }
+
+            if(!Directory.Exists(fullTargetDir)) Directory.CreateDirectory(fullTargetDir);
+            string value = JsonUtility.ToJson(cregs, true);
+            File.WriteAllText(targetPath+"/"+kvp.Key+".creg", value);
+        }
+    }
+
     static List<ColorRegion> ProcessFile(string filePath,
                                 string keyName,
                                 StreamingAssetLoader<List<ColorRegion>>.Properties p,

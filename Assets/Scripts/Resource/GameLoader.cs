@@ -6,16 +6,20 @@ using System.Linq;
 
 public class GameLoader
 {
-    const string path = "games";
+    public const string path = "games";
     [System.Serializable]
     public class Properties{
+        public void SetOptimized() => optimized = true;
+
         public string DisplayName{get{return displayName;}}
         public string GameName {get{return gameName;}}
         public string GamePath {get{return gamePath;}}
         public string Language {get{return defaultLanguage;}}
+        public bool IsOptimized {get{return optimized;}}
 
         [SerializeField] string gameName;
         [SerializeField] string defaultLanguage;
+        [SerializeField] bool optimized = false;
         string gamePath;
         string displayName;
 
@@ -52,7 +56,8 @@ public class GameLoader
         if(!Directory.Exists(mainPath)) return new Properties[0];
         string[] directories = Directory.GetDirectories(mainPath);
         List<Properties> allGames = new List<Properties>();
-        foreach(string checkPath in directories){
+        foreach(string cp in directories){
+            string checkPath = cp.Replace("\\", "/");
             string propsPath = checkPath + "/properties.json";
             if(!File.Exists(propsPath)) continue;
             string contents = File.ReadAllText(propsPath);

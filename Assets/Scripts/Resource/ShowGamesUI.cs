@@ -28,7 +28,7 @@ public class ShowGamesUI : MonoBehaviour
             TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TextMeshProUGUI>();
             Button b = prefabInstance.GetComponent<Button>();
             if(text) text.text = prop.DisplayName;
-            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop.GamePath, loadUI, loadText, HandleException, ShowLanguages)));
+            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop, loadUI, loadText, HandleException, ShowLanguages)));
         }
     }
 

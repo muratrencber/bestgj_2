@@ -1,0 +1,56 @@
+{
+    "color":"#0004ff",
+    "typeName":"DRINK",
+    "className":"OtomatConfigs",
+    "itemKeys":[
+        "filtre_kahve",
+        "latte",
+        "frappucino",
+        "mocha",
+        "cay",
+        "kola",
+        "siyanur",
+        "sut"
+    ],
+    "startNumber": 10,
+    "properties": [
+        {
+            "stateName":"NO_MONEY",
+            "prompt":"otomat_start"
+        },
+        {
+            "stateName":"MONEY",
+            "prompt":"otomat_select"
+        },
+        {
+            "stateName":"MONEY_ONE_INPUT",
+            "prompt":"otomat_select"
+        },
+        {
+            "stateName":"PROCESSING_INPUT",
+            "prompt":"otomat_load",
+            "duration": 0.7
+        },
+        {
+            "stateName":"INVALID_NUMBER",
+            "prompt":"otomat_wrong",
+            "duration": 1.5
+        },
+        {
+            "stateName":"NOT_ENOUGH_MONEY",
+            "prompt":"otomat_nomoney",
+            "duration": 1.5
+        },
+        {
+            "stateName":"GIVING_ITEM",
+            "prompt":"otomat_giving"
+        },
+        {
+            "stateName":"GIVING_CHANGE",
+            "prompt":"otomat_change"
+        }
+    ],
+    "durationBetweenCoins":0.5,
+    "sizeX":5,
+    "sizeY":5
+}

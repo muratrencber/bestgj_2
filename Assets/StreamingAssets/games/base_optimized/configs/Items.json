@@ -1,0 +1,393 @@
+{
+    "className":"ItemConfigs",
+    "defaultMinAddition": -0.5,
+    "maxAdditionMultiplier": 0.1,
+    "items": [
+      {
+        "itemKey": "brobis",
+        "tags": [
+          "tatli",
+          "kremali",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "biskuvi"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "cannane",
+        "tags": [
+          "tatli",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "kremali",
+          "biskuvi"
+        ],
+        "price": 4
+      },
+      {
+        "itemKey": "citos",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "kitir"
+        ],
+        "price": 3,
+        "worldRotation": -90
+      },
+      {
+        "itemKey": "cizim_vic",
+        "tags": [
+          "tuzlu",
+          "abur_cubur",
+          "doyurucu",
+          "yiyecek",
+          "kitir"
+        ],
+        "price": 5
+      },
+      {
+        "itemKey": "caker_gofret",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 3
+      },
+      {
+        "itemKey": "cubuk_kraker",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "tuzlu",
+          "doyurucu"
+        ],
+        "price": 2,
+        "worldRotation": -90
+      },
+      {
+        "itemKey": "minder",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 9,
+        "worldRotation": -90,
+        "worldScaling": 0.7
+      },
+      {
+        "itemKey": "nilka",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "tatli"
+        ],
+        "price": 9
+      },
+      {
+        "itemKey": "poritos",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "baharatli",
+          "kitir",
+          "tuzlu",
+          "aci"
+        ],
+        "price": 7,
+        "worldRotation": -90
+      },
+      {
+        "itemKey": "tadin_bar",
+        "tags": [
+          "yiyecek",
+          "doyurucu"
+        ],
+        "price": 8
+      },
+      {
+        "itemKey": "twitter",
+        "tags": [
+          "yiyecek",
+          "soguk"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "utku",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "kremali",
+          "tatli",
+          "biskuvi"
+        ],
+        "price": 5
+      },
+      {
+        "itemKey": "yaram",
+        "tags": [
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "aci",
+          "kitir"
+        ],
+        "price": 7
+      },
+      {
+        "itemKey": "goog",
+        "tags": [
+          "tuzlu",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "kitir"
+        ],
+        "price": 3
+      },
+      {
+        "itemKey": "cosbes",
+        "tags": [
+          "tatli",
+          "doyurucu",
+          "yiyecek",
+          "kremali",
+          "kitir"
+        ],
+        "price": 4
+      },
+      {
+        "itemKey": "hudo",
+        "tags": [
+          "tatli",
+          "yiyecek",
+          "abur_cubur",
+          "kitir",
+          "cikolatali"
+        ],
+        "price": 4
+      },
+      {
+        "itemKey": "yeticin",
+        "tags": [
+          "tatli",
+          "doyurucu",
+          "yiyecek",
+          "abur_cubur",
+          "biskuvi"
+        ],
+        "price": 2
+      },
+      {
+        "itemKey": "calbeni_tane",
+        "tags": [
+          "tatli",
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "olley",
+        "tags": [
+          "tatli",
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali",
+          "kremali"
+        ],
+        "price": 2
+      },
+      {
+        "itemKey": "harbi",
+        "tags": [
+          "tatli",
+          "yiyecek",
+          "abur_cubur",
+          "cikolatali"
+        ],
+        "price": 2
+      },
+      {
+        "itemKey": "su",
+        "typeName":"DRINK",
+        "tags": [
+          "soguk",
+          "icecek"
+        ],
+        "price": 1
+      },
+      {
+        "itemKey": "filtre_kahve",
+        "typeName":"DRINK",
+        "tags": [
+          "sicak",
+          "icecek",
+          "kahve",
+          "kafeinli",
+          "aci"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "latte",
+        "typeName":"DRINK",
+        "tags": [
+          "sicak",
+          "icecek",
+          "kahve",
+          "tatli"
+        ],
+        "price": 7
+      },
+      {
+        "itemKey": "frappucino",
+        "typeName":"DRINK",
+        "tags": [
+          "sicak",
+          "icecek",
+          "kahve"
+        ],
+        "price": 8
+      },
+      {
+        "itemKey": "mocha",
+        "typeName":"DRINK",
+        "tags": [
+          "sicak",
+          "icecek",
+          "kahve",
+          "kafeinli",
+          "aci",
+          "cikolatali"
+        ],
+        "price": 8
+      },
+      {
+        "itemKey": "cay",
+        "typeName":"DRINK",
+        "tags": [
+          "sicak",
+          "icecek",
+          "kafeinli"
+        ],
+        "price": 3
+      },
+      {
+        "itemKey": "kola",
+        "typeName":"DRINK",
+        "tags": [
+          "soguk",
+          "icecek",
+          "kafeinli",
+          "tatli",
+          "asitli"
+        ],
+        "price": 6
+      },
+      {
+        "itemKey": "siyanur",
+        "typeName":"DRINK",
+        "tags": [
+          "icecek",
+          "doyurucu",
+          "asitli",
+          "aci"
+        ],
+        "price": 4
+      },
+      {
+        "itemKey": "sut",
+        "typeName":"DRINK",
+        "tags": [
+          "icecek",
+          "doyurucu"
+        ],
+        "price": 5
+      }
+    ],
+    "tags":[
+      {
+        "key": "tatli",
+        "name": "tatli"
+      },
+      {
+        "key": "asitli",
+        "name": "asitli"
+      },
+      {
+        "key": "kahve",
+        "name": "kahve"
+      },
+      {
+        "key": "kafeinli",
+        "name": "kafeinli"
+      },
+      {
+        "key": "soguk",
+        "name": "soguk"
+      },
+      {
+        "key": "sicak",
+        "name": "sicak"
+      },
+      {
+        "key": "tuzlu",
+        "name": "tuzlu"
+      },
+      {
+        "key": "aci",
+        "name": "aci"
+      },
+      {
+        "key": "eksi",
+        "name": "eksi"
+      },
+      {
+        "key": "doyurucu",
+        "name": "doyurucu"
+      },
+      {
+        "key": "yiyecek",
+        "name": "yiyecek"
+      },
+      {
+        "key": "abur_cubur",
+        "name": "abur_cubur"
+      },
+      {
+        "key": "kremali",
+        "name": "kremali"
+      },
+      {
+        "key": "kitir",
+        "name": "kitir"
+      },
+      {
+        "key": "baharatli",
+        "name": "baharatli"
+      },
+      {
+        "key": "biskuvi",
+        "name": "biskuvi"
+      },
+      {
+        "key": "cikolatali",
+        "name": "cikolatali"
+      },
+      {
+        "key": "icecek",
+        "name": "icecek"
+      }
+    ]
+  }

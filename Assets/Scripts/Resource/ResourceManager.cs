@@ -6,6 +6,8 @@ using System;
 
 public class ResourceManager
 {
+    public static bool loadingOptimized = false;
+
     class DictionaryProperties{
         public string folderName;
         public string loadLangKey;
@@ -30,6 +32,11 @@ public class ResourceManager
 
     static Dictionary<Type, IDictionary> dictionaries = new Dictionary<Type, IDictionary>();
     static Dictionary<Type, DictionaryProperties> dictProperties = new Dictionary<Type, DictionaryProperties>();
+
+    public static string[] GetFolders(){
+        Initialize();
+        return dictProperties.Values.Select((dp) => dp.folderName).ToArray();
+    }
 
     static void Initialize(bool force = false){
         if(initialized && !force) return;
@@ -79,8 +86,11 @@ public class ResourceManager
         dictProperties.Clear();
     }
     
-    public static IEnumerator LoadGame(string path, GameObject UIObject, TMPro.TextMeshProUGUI text, Action<Exception> exceptionHandler, Action onFinished){
+    public static IEnumerator LoadGame(GameLoader.Properties prop, GameObject UIObject, TMPro.TextMeshProUGUI text, Action<Exception> exceptionHandler, Action onFinished){
         if(loading) yield break;
+        string path = prop.GamePath;
+        loadingOptimized = prop.IsOptimized;
+        
         loading = true;
         Initialize();
         float time = 0.5f;

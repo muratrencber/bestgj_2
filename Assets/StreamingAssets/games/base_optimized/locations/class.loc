@@ -1,0 +1,31 @@
+{
+    "background":"Backgrounds/classbg",
+    "cameraColor":"#000000",
+    "studentColor":"#0006ff",
+    "customStudents": [
+        {
+            "color":"#83aa59",
+            "likes":[
+                {
+                    "key":"",
+                    "value": 0.6
+                }
+            ],
+            "layers":[
+                "CharacterAssets/body/i_CXr69r3J6HfxEHNL",
+                "CharacterAssets/cloth/all/i_6c1B9rPgGOVhq7zy",
+                "CharacterAssets/eye/female/i_IqtdIJYUgG7tvfXP",
+                "CharacterAssets/eyebrow/all/i_6BHdv5iDigbxXYcZ",
+                "CharacterAssets/mouth/all/i_5JsrhynEj9dvGBBQ",
+                "CharacterAssets/nose/all/i_aYVViETySmmwW5FC",
+                "CharacterAssets/hair/female/i_BR0dxD0PeIJe3ejA"
+            ],
+            "colors":[
+                {
+                    "path":"CharacterAssets/hair/female/i_BR0dxD0PeIJe3ejA",
+                    "color":"#83aa59"
+                }
+            ]
+        }
+    ]
+}
