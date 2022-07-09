@@ -9,26 +9,18 @@ public class ShowGamesUI : MonoBehaviour
     const float PROMPT_MIN_SECONDS = 0.5f;
     [SerializeField] string languageWindowKey;
     [SerializeField] Transform container;
-    [SerializeField] GameObject loadUI, popupUI;
-    [SerializeField] TMPro.TextMeshProUGUI loadText, popupText;
-    [SerializeField] string buttonPath = "UI/GameSelectButton";
 
     void Start(){
-        popupUI.SetActive(false);
-        loadUI.SetActive(false);
         ShowAll();
     }
 
     void ShowAll(){
         GameLoader.Properties[] props = GameLoader.LoadGames();
-        GameObject prefab = Resources.Load<GameObject>(buttonPath);
         container.DestroyChildren();
         foreach(GameLoader.Properties prop in props){
-            GameObject prefabInstance = Instantiate(prefab, container);
-            TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TextMeshProUGUI>();
-            Button b = prefabInstance.GetComponent<Button>();
-            if(text) text.text = prop.DisplayName;
-            if(b) b.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop, loadUI, loadText, HandleException, ShowLanguages)));
+            OptionsMenuCreator.Item<Button> propButton = OptionsMenuCreator.CreateRow<Button>(
+                container, OptionsMenuCreator.ItemType.BUTTON, null, new LocalizedString(prop.DisplayName));
+            propButton.itemClass.onClick.AddListener(() => this.StartCoroutine(ResourceManager.LoadGame(prop, HandleException, ShowLanguages, true)));
         }
     }
 
@@ -37,9 +29,8 @@ public class ShowGamesUI : MonoBehaviour
     }
 
     void HandleException(System.Exception e){
-        loadUI.SetActive(false);
-        popupUI.SetActive(true);
+        LoadingScreen.Hide();
         Locales.TryGetLineMain("error_prompt", out string err, e.Message);
-        popupText.text = err;
+        Popup.Show(err);
     }
 }

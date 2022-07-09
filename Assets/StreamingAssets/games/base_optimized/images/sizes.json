@@ -16,92 +16,92 @@
         },
         {
             "key": "ItemSprites/brobis",
-            "width": 512,
-            "height": 257,
+            "width": 1631,
+            "height": 819,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/caker_gofret",
-            "width": 511,
-            "height": 148,
+            "width": 1549,
+            "height": 449,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/cannane",
-            "width": 512,
-            "height": 153,
-            "format": 5,
+            "width": 792,
+            "height": 236,
+            "format": 12,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/citos",
-            "width": 138,
-            "height": 512,
+            "width": 423,
+            "height": 1575,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/cizim_vic",
-            "width": 512,
-            "height": 199,
+            "width": 1496,
+            "height": 581,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/cubuk_kraker",
-            "width": 399,
-            "height": 512,
+            "width": 1045,
+            "height": 1340,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/minder",
-            "width": 512,
-            "height": 472,
-            "format": 12,
+            "width": 1750,
+            "height": 1612,
+            "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/nilka",
-            "width": 512,
-            "height": 214,
+            "width": 1517,
+            "height": 633,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/poritos",
-            "width": 297,
-            "height": 512,
+            "width": 973,
+            "height": 1678,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/tadin_bar",
-            "width": 511,
-            "height": 168,
+            "width": 1506,
+            "height": 495,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/twitter",
-            "width": 511,
-            "height": 176,
+            "width": 1618,
+            "height": 557,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/utku",
-            "width": 512,
-            "height": 187,
+            "width": 1223,
+            "height": 447,
             "format": 5,
             "mipCount": 1
         },
         {
             "key": "ItemSprites/yaram",
-            "width": 511,
-            "height": 202,
+            "width": 1612,
+            "height": 637,
             "format": 5,
             "mipCount": 1
         },

@@ -17,6 +17,15 @@ public class OptimizedImage{
     public int height;
     public TextureFormat format;
     public int mipCount;
+
+    public OptimizedImage(){}
+    public OptimizedImage(Texture2D tex, string key){
+        this.width = tex.width;
+        this.height = tex.height;
+        this.key = key;
+        this.format = tex.format;
+        this.mipCount = tex.mipmapCount;
+    }
 }
 public class ImageLoader
 {
@@ -114,29 +123,14 @@ public class ImageLoader
         compress = savedCompress;
 
         OptimizedImageList optimList = new OptimizedImageList();
-
-        foreach(KeyValuePair<string, Sprite> kvp in sprites){
+        
+        IOOperations.WriteFromKeys<Sprite>(sprites, sourcePath, (p, kvp)=>{
             Texture2D tex = kvp.Value.texture;
-
-            OptimizedImage optim = new OptimizedImage();
-            
-            optim.width = tex.width;
-            optim.height = tex.height;
-            optim.key = kvp.Key;
-            optim.format = tex.format;
-            optim.mipCount = tex.mipmapCount;
+            OptimizedImage optim = new OptimizedImage(tex, kvp.Key);
             optimList.images.Add(optim);
 
-            string fullTargetDir =  sourcePath;
-            if(kvp.Key.Contains("/")){
-                string withoutFileName = kvp.Key.Substring(0, kvp.Key.LastIndexOf("/"));
-                fullTargetDir += withoutFileName;
-            }
-
-            if(!Directory.Exists(fullTargetDir)) Directory.CreateDirectory(fullTargetDir);
-
             File.WriteAllBytes(targetPath+"/"+kvp.Key+".rawtex", tex.GetRawTextureData());
-        }
+        });
 
         string optimListJSON = JsonUtility.ToJson(optimList, true);
         File.WriteAllText(targetPath+"/sizes.json", optimListJSON);

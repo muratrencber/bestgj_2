@@ -86,32 +86,31 @@ public class ResourceManager
         dictProperties.Clear();
     }
     
-    public static IEnumerator LoadGame(GameLoader.Properties prop, GameObject UIObject, TMPro.TextMeshProUGUI text, Action<Exception> exceptionHandler, Action onFinished){
+    public static IEnumerator LoadGame(GameLoader.Properties prop, Action<Exception> exceptionHandler, Action onFinished, bool force = false){
         if(loading) yield break;
         string path = prop.GamePath;
         loadingOptimized = prop.IsOptimized;
         
         loading = true;
-        Initialize();
-        float time = 0.5f;
-        UIObject.SetActive(true);
+        Initialize(force);
+        float time = 0f;
         foreach(KeyValuePair<Type, IDictionary> typDct in dictionaries){
             DictionaryProperties dctProps = dictProperties[typDct.Key];
             IDictionary dct = typDct.Value;
-            yield return SetPrompt(text, dctProps.loadLangKey, time);
+            yield return SetPrompt(dctProps.loadLangKey, time);
             if(!TryLoad(dctProps.loadingAction, path + "/" + dctProps.folderName, dct, exceptionHandler)) yield break;
         }
 
-        UIObject.SetActive(false);
+        LoadingScreen.Hide();
         loading = false;
 
         onFinished?.Invoke();
         yield return null;
     }
 
-    static IEnumerator SetPrompt(TMPro.TextMeshProUGUI text, string s, float seconds){
+    static IEnumerator SetPrompt(string s, float seconds){
         Locales.TryGetLineMain(s, out string locS);
-        text.text = locS;
+        LoadingScreen.ShowText(locS);
         yield return new WaitForSeconds(seconds);
     }
 

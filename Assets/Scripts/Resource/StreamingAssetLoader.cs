@@ -108,26 +108,18 @@ public class StreamingAssetLoader<T>
     void LoadAllInDirectory(){
         Queue<string> dirPaths = new Queue<string>();
         string directoryPath = mainPath.Replace("\\","/");
-        dirPaths.Enqueue(directoryPath);
-        if(!Directory.Exists(directoryPath)) throw new System.Exception("Directory " +directoryPath+ " does not exist!");
-        while(dirPaths.Count > 0){
-            string dirp = dirPaths.Dequeue();
-            string[] filePaths = Directory.GetFiles(dirp);
-            string[] directories = Directory.GetDirectories(dirp);
-            LoadProperties(dirp);
-            foreach(string filePathRaw in filePaths){
-                string filePath = filePathRaw.Replace("\\","/");
-                if(!IsSupported(filePath)) continue;
-                string keyName = dirp+"/"+Path.GetFileNameWithoutExtension(filePath);
-                if(items.ContainsKey(keyName)) return;
-                keyName = keyName.Split(directoryPath+"/")[1];
-                KeyValuePair<Properties, PropertiesList> pAndPl = GetPropsForFile(dirp, filePath);
-                T result = callback(filePath, keyName, pAndPl.Key, pAndPl.Value, this);
-                if(result != null) items.Add(keyName, result);
-            }
-            foreach(string dirPath in directories){
-                dirPaths.Enqueue(dirPath.Replace("\\","/"));
-            }
-        }
+        System.Action<string> processDirectory = (string directoryPath) => {
+            if(!Directory.Exists(directoryPath)) throw new System.Exception("Directory " +directoryPath+ " does not exist!");
+            LoadProperties(directoryPath);
+        };
+        System.Action<string, string> processFile = (string filePath, string dirPath) => {
+            string keyName = dirPath+"/"+Path.GetFileNameWithoutExtension(filePath);
+            if(items.ContainsKey(keyName)) return;
+            keyName = keyName.Split(directoryPath+"/")[1];
+            KeyValuePair<Properties, PropertiesList> pAndPl = GetPropsForFile(directoryPath, filePath);
+            T result = callback(filePath, keyName, pAndPl.Key, pAndPl.Value, this);
+            if(result != null) items.Add(keyName, result);
+        };
+        IOOperations.SearchAllFiles(directoryPath, processDirectory, processFile, supportedExtensions);
     }
 }

@@ -32,30 +32,23 @@ public class ColorRegionsLoader
     const long MAX_SIZE = 20000;
     public static void LoadRegions(string path, IDictionary itemsInterface){
         Dictionary<string, List<ColorRegion>> items = itemsInterface as Dictionary<string, List<ColorRegion>>;
-        string[] extensions = {".png"};
+        string[] extensions = {(ResourceManager.loadingOptimized ? ".creg" : ".png")};
+        StreamingAssetLoader<List<ColorRegion>>.PathProcessor pFile = ResourceManager.loadingOptimized ? ProcessOptimizedFile : ProcessFile;
         StreamingAssetLoader<List<ColorRegion>>.Properties defaults = new StreamingAssetLoader<List<ColorRegion>>.Properties();
-        StreamingAssetLoader<List<ColorRegion>> sal = new StreamingAssetLoader<List<ColorRegion>>(extensions, ProcessFile, defaults, items);
+        StreamingAssetLoader<List<ColorRegion>> sal = new StreamingAssetLoader<List<ColorRegion>>(extensions, pFile, defaults, items);
         sal.BeginLoad(path);
     }
 
     public static void OptimizeRegions(string path, string targetPath){
         Dictionary<string, List<ColorRegion>> regions = new Dictionary<string, List<ColorRegion>>();
         LoadRegions(path, regions);
-        foreach(KeyValuePair<string, List<ColorRegion>> kvp in regions){
+        IOOperations.WriteFromKeys<List<ColorRegion>>(regions, path, (p, kvp)=>{
             ColorRegions cregs = new ColorRegions();
             cregs.regions = kvp.Value;
-            
 
-            string fullTargetDir =  path;
-            if(kvp.Key.Contains("/")){
-                string withoutFileName = kvp.Key.Substring(0, kvp.Key.LastIndexOf("/"));
-                fullTargetDir += withoutFileName;
-            }
-
-            if(!Directory.Exists(fullTargetDir)) Directory.CreateDirectory(fullTargetDir);
             string value = JsonUtility.ToJson(cregs, true);
             File.WriteAllText(targetPath+"/"+kvp.Key+".creg", value);
-        }
+        });
     }
 
     static List<ColorRegion> ProcessFile(string filePath,
@@ -90,6 +83,15 @@ public class ColorRegionsLoader
             regList.Add(cr);
         }
         return regList;
+    }
+
+    static List<ColorRegion> ProcessOptimizedFile(string filePath,
+                                string keyName,
+                                StreamingAssetLoader<List<ColorRegion>>.Properties p,
+                                StreamingAssetLoader<List<ColorRegion>>.PropertiesList pl,
+                                StreamingAssetLoader<List<ColorRegion>> sal){
+        ColorRegions cregs = JsonUtility.FromJson<ColorRegions>(File.ReadAllText(filePath));
+        return cregs.regions;
     }
 
     static void AddNeighbours(int index, Color c, Color[] arr, Queue<int> neighbours, int width, int height, ColorRegion cr){

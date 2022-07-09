@@ -23,4 +23,5 @@ public class GameProperties : Configurable
     [SerializeField] List<UIPrompt.Command> endLines = new List<UIPrompt.Command>();
     [SerializeField] int wonIndex, lostIndex;
     [SerializeField] CursorLoadProperties defaultCursor, travelCursor, lookCursor, interactCursor, giveMoneyCursor;
+
 }

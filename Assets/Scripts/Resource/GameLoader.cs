@@ -27,6 +27,10 @@ public class GameLoader
             gamePath = p;
         }
 
+        public Properties Clone(){
+            return JsonUtility.FromJson<Properties>(JsonUtility.ToJson(this));
+        }
+
         public void SetTitle(){
             displayName = gameName;
             Dictionary<string, Locales> locales = new Dictionary<string, Locales>();

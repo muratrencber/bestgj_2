@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ShowModLanguages : MonoBehaviour
@@ -16,11 +17,10 @@ public class ShowModLanguages : MonoBehaviour
         Locales[] locs = ResourceManager.GetAll<Locales>();
 
         foreach(Locales loc in locs){
-            GameObject prefabInstance = Instantiate(prefab, container);
-            TMPro.TextMeshProUGUI text = prefabInstance.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-            UnityEngine.UI.Button b = prefabInstance.GetComponent<UnityEngine.UI.Button>();
-            if(text) text.text = loc.Name;
-            if(b) b.onClick.AddListener(() => {
+            OptionsMenuCreator.Item<Button> propButton = OptionsMenuCreator.CreateRow<Button>(
+                container, OptionsMenuCreator.ItemType.BUTTON,
+                null, new LocalizedString(loc.Name));
+            propButton.itemClass.onClick.AddListener(() => {
                 Locales.SetModKey(loc.LanguageKey);
                 SceneManager.LoadScene("CustomGame");
             });
