@@ -29,10 +29,27 @@ public class OptimizedImage{
 }
 public class ImageLoader
 {
+    const float yieldSeconds = 0.1f;
+    static float lastYield;
+    static IEnumerator loadRoutine;
+
+    public static void SetCoroutine(IEnumerator c){
+        loadRoutine = c;
+        lastYield = Time.time;
+    }
+
+    static void CheckCoroutine(){
+        float elapsed = Time.time - lastYield;
+        if(elapsed > yieldSeconds){
+            loadRoutine.MoveNext();
+        }
+    }
+
     public static bool compress = true;
     static ulong totalPixels;
     static Dictionary<string, OptimizedImage> optimizedImages = null;
     public static void LoadImages(string path, IDictionary itemsInterface){
+        compress = PlayerPrefs.GetInt("compress", 1) != 0;
         Dictionary<string, Sprite> items = itemsInterface as Dictionary<string, Sprite>;
         
         string[] extensions = {".png",".jpg",".jpeg",".bmp"};

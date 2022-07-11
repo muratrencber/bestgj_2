@@ -11,10 +11,11 @@ public class CursorLoadProperties{
 public class GameProperties : Configurable
 {
     [System.Serializable]
-    struct DailyMoney{
+    class DailyMoney{
         public int day;
         public int money;
     }
+    
     [SerializeField] int dayCount = 6;
     [SerializeField] float dayMinutes = 5;
     [SerializeField] List<DailyMoney> dailyMoney = new List<DailyMoney>();

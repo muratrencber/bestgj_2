@@ -1,8 +1,37 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public static class Extensions
 {
+    public static void RedrawCSFUpwards(this RectTransform rt, bool forceAll = false){
+        RectTransform current = rt;
+        while(current != null){
+            LayoutRebuilder.ForceRebuildLayoutImmediate(current);
+            current = current.parent != null ? current.parent.GetComponent<RectTransform>() : null;
+        }
+        Canvas.ForceUpdateCanvases();
+        /*Stack<RectTransform> sizeFitters = new Stack<RectTransform>();
+        Stack<RectTransform> layoutGroups = new Stack<RectTransform>();
+        while(current != null){
+            if(current.GetComponent<ContentSizeFitter>()){
+                sizeFitters.Push(current);
+            } else if(current.GetComponent<HorizontalOrVerticalLayoutGroup>()){
+                layoutGroups.Push(current);
+            }
+            current = current.parent != null ? current.parent.GetComponent<RectTransform>() : null;
+        }
+        while(sizeFitters.Count > 0){
+            LayoutRebuilder.MarkLayoutForRebuild(sizeFitters.Pop());
+        } while(layoutGroups.Count > 0){
+            LayoutRebuilder.MarkLayoutForRebuild(layoutGroups.Pop());
+        } Canvas.ForceUpdateCanvases();*/
+
+    }
+    public static void Toggle(this GameObject g){
+        g.SetActive(!g.activeSelf);
+    }
+
     public static void DestroyChildren(this Transform t){
         for(int i = 0; i < t.childCount; i++)
             GameObject.Destroy(t.GetChild(i).gameObject);

@@ -39,7 +39,7 @@ public class StudentConfigs: Configurable
     [SerializeField] List<Dialogue> dialogues = new List<Dialogue>();
     [SerializeField] float minLike, maxLike;
     [SerializeField] float winTolerance;
-    [SerializeField] Like[] overrideLikes;
+    [SerializeField] List<Like> overrideLikes = new List<Like>();
 
     Dictionary<Dialogue.Type, List<Dialogue>> dialogueDictionary = new Dictionary<Dialogue.Type, List<Dialogue>>();
 

@@ -1,20 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
 
-public class ModOptions : MonoBehaviour
+public class ModOptions : OptionsMenu
 {
-    [SerializeField] Transform container;
-
-    List<Checker> checkers = new List<Checker>();
-
-    void Start(){
-        CreateMenu();
-    }
-    void CreateMenu(){
+    protected override void CreateMenu(){
         checkers.Clear();
         container.DestroyChildren();
         GameLoader.Properties[] props = GameLoader.LoadGames();
@@ -56,10 +47,6 @@ public class ModOptions : MonoBehaviour
     void CreateToggleWatcher(bool enableWhenToggled, GameObject target, params Toggle[] toggles){
         if(toggles == null || toggles.Length == 0) return;
         checkers.Add(new ToggleWatcher(toggles.ToList(), enableWhenToggled, target));
-    }
-
-    void Update(){
-        checkers.ForEach((w) => w.Update());
     }
 
     void OptimizeMod(string modFolder, GameLoader.Properties props, bool sameFolder, bool compress){

@@ -1,5 +1,5 @@
 {
-    "className":"GameConfigs",
+    "className":"GameProperties",
     "dayCount": 6,
     "dayMinutes": 5,
     "dailyMoney": [

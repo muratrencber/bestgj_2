@@ -47,7 +47,7 @@
         },
         {
             "key":"loading_images",
-            "value":"Resimler yükleniyor..."
+            "value":"Resimler yükleniyor... {}"
         },
         {
             "key":"button_game_select",
@@ -58,12 +58,36 @@
             "value":"Ayarlar"
         },
         {
+            "key":"button_modding",
+            "value":"Modlama"
+        },
+        {
             "key":"button_credits",
             "value":"Hazırlayanlar"
         },
         {
             "key":"button_back",
             "value":"Geri"
+        },
+        {
+            "key":"tab_game_options",
+            "value":"Oyun ayarları"
+        },
+        {
+            "key":"tab_mod_options",
+            "value":"Modlama"
+        },
+        {
+            "key":"tab_mod_select",
+            "value":"Mod Seç"
+        },
+        {
+            "key":"tab_mod_create",
+            "value":"Mod Oluştur"
+        },
+        {
+            "key":"tab_mod_configs",
+            "value":"Ayarlamalar"
         },
         {
             "key":"options_mod_select",
@@ -88,6 +112,62 @@
         {
             "key":"options_mod_clean",
             "value":"Gereksiz dosyaları temizle"
+        },
+        {
+            "key":"options_game_fsmode",
+            "value":"Ekran modu"
+        },
+        {
+            "key":"options_game_resolution",
+            "value":"Ekran çözünürlüğü"
+        },
+        {
+            "key":"options_game_mastervolume",
+            "value":"Ana sesler"
+        },
+        {
+            "key":"options_game_sfxvolume",
+            "value":"Efekt sesleri"
+        },
+        {
+            "key":"options_game_musicvolume",
+            "value":"Müzik sesleri"
+        },
+        {
+            "key":"options_game_languages",
+            "value":"Dil"
+        },
+        {
+            "key":"options_game_compress",
+            "value":"Mod yüklerken sıkıştır"
+        },
+        {
+            "key":"options_game_heading_video",
+            "value":"Video ayarları"
+        },
+        {
+            "key":"options_game_heading_sound",
+            "value":"Ses ayarları"
+        },
+        {
+            "key":"options_game_heading_other",
+            "value":"Diğer ayarlar"
+        },
+        {
+            "key":"options_exclusivefullscreen",
+            "value":"Tam Ekran"
+        },
+        {
+            "key":"options_windowed",
+            "value":"Pencere"
+        },
+        {
+            "key":"options_fullscreenwindow",
+            "value":"Tam Ekran Pencere"
+        },
+        {
+            "key":"options_maximizedwindow",
+            "value":"Kaplayan Pencere"
         },
         {
             "key":"credits",

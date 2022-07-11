@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [System.Serializable]
 public class Locales
@@ -25,6 +26,11 @@ public class Locales
     [SerializeField] List<Line> lines = new List<Line>();
     Dictionary<string, string> lineDict = new Dictionary<string, string>();
     string langKey;
+
+    public static KeyValuePair<string, string>[] LoadMainLocalesKeys(){
+        TextAsset[] txAssets = Resources.LoadAll<TextAsset>("Locales");
+        return txAssets.Select((tx) => new KeyValuePair<string, string>(tx.name, JsonUtility.FromJson<Locales>(tx.ToString()).Name)).ToArray();
+    }
 
     public static void SetMainKey(string newKey){
         mainLanguageKey = newKey;
@@ -75,8 +81,9 @@ public class Locales
                 bool has = false;
                 if(i < tempLine.Length - 1){
                     char c2 = tempLine[i+1];
-                    if(fillIns != null && fillInsIndex < fillIns.Length && c1 == '{' && c2== '}'){
-                        line += fillIns[fillInsIndex++];
+                    if(c1 == '{' && c2== '}'){
+                        bool hasFillIn = fillIns != null && fillInsIndex < fillIns.Length;
+                        line += hasFillIn ? fillIns[fillInsIndex++] : "";
                         i++;
                         has = true;
                     }

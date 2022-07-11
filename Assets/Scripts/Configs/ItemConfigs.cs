@@ -15,7 +15,8 @@ public class ItemConfigs: Configurable
         public string itemKey;
         public string itemName;
         public string typeName = "FOOD";
-        public string[] tags;
+        public List<string> tags = new List<string>();
+
         public int price;
         public float minAddition, maxAddition;
         public float worldRotation = 0;
@@ -37,14 +38,15 @@ public class ItemConfigs: Configurable
     
     public Dictionary<string, ItemProperties> ItemDictionary {get{return itemDictionary;}}
     public Dictionary<string, TagProperties> TagDictionary {get{return tagDictionary;}}
-    public ItemProperties[] ItemArray {get{return items;}}
-    public TagProperties[] TagArray {get{return tags;}}
+    public ItemProperties[] ItemArray {get{return items.ToArray();}}
+    public TagProperties[] TagArray {get{return tags.ToArray();}}
     public float MaxAdditionMultiplier{get{return maxAdditionMultiplier;}}
     public float DefaultMinAddition{get{return defaultMinAddition;}}
 
+    public List<int> testIntegers = new List<int>();
     static ItemConfigs instance;
-    [SerializeField] ItemProperties[] items;
-    [SerializeField] TagProperties[] tags;
+    [SerializeField] List<ItemProperties> items = new List<ItemProperties>();
+    [SerializeField] List<TagProperties> tags = new List<TagProperties>();
     [SerializeField] float maxAdditionMultiplier;
     [SerializeField] float defaultMinAddition;
 

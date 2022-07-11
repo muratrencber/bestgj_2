@@ -68,7 +68,7 @@ public class Student : DayEntity
             total += points[t];
         }
         total += points[ip.itemKey];
-        total /= (float)(ip.tags.Length + 1);
+        total /= (float)(ip.tags.Count + 1);
         positivity += total;
         if(total > 0){
             bool likesItem = likes.Contains(ip.itemKey);

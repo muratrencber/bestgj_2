@@ -35,6 +35,8 @@ public class Configs
     ItemConfigs itemConfigs;
     OtomatConfigs otomatConfigs;
 
+    public static Dictionary<System.Type, Configurable> Configurables {get{return configurables;}}
+
     static Dictionary<System.Type, Configurable> configurables = new Dictionary<System.Type, Configurable>();
 
     static void CheckAndCreateInstances(){
@@ -67,10 +69,11 @@ public class Configs
         }
     }
 
-    public static T GetConfigsOf<T>() where T:Configurable{
-        System.Type targetType = typeof(T);
-        if(configurables.TryGetValue(targetType, out Configurable val))
-            return val as T;
+    public static T GetConfigsOf<T>() where T:Configurable => (T)GetConfigsOf(typeof(T));
+
+    public static Configurable GetConfigsOf(System.Type t){
+        if(configurables.TryGetValue(t, out Configurable val))
+            return val;
         return null;
     }
 }

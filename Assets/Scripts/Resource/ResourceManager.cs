@@ -100,7 +100,7 @@ public class ResourceManager
             yield return SetPrompt(dctProps.loadLangKey, time);
             if(!TryLoad(dctProps.loadingAction, path + "/" + dctProps.folderName, dct, exceptionHandler)) yield break;
         }
-
+        yield return null;
         LoadingScreen.Hide();
         loading = false;
 

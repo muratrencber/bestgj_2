@@ -16,7 +16,12 @@ public class ConfigruableLoader<T> where T:Configurable
                                 StreamingAssetLoader<T>.Properties p,
                                 StreamingAssetLoader<T>.PropertiesList pl,
                                 StreamingAssetLoader<T> sal){
-        T oc = JsonUtility.FromJson<T>(System.IO.File.ReadAllText(filePath));
+        string text = System.IO.File.ReadAllText(filePath);
+        T oc = JsonUtility.FromJson<T>(text);
+        if(typeof(T) == typeof(Configurable)){
+            System.Type targetType = System.Type.GetType(oc.ClassName);
+            oc = JsonUtility.FromJson(text, targetType) as T;
+        }
         oc.Init();
         return oc;
     }
