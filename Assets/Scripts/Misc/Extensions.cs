@@ -11,23 +11,30 @@ public static class Extensions
             current = current.parent != null ? current.parent.GetComponent<RectTransform>() : null;
         }
         Canvas.ForceUpdateCanvases();
-        /*Stack<RectTransform> sizeFitters = new Stack<RectTransform>();
-        Stack<RectTransform> layoutGroups = new Stack<RectTransform>();
-        while(current != null){
-            if(current.GetComponent<ContentSizeFitter>()){
-                sizeFitters.Push(current);
-            } else if(current.GetComponent<HorizontalOrVerticalLayoutGroup>()){
-                layoutGroups.Push(current);
-            }
-            current = current.parent != null ? current.parent.GetComponent<RectTransform>() : null;
-        }
-        while(sizeFitters.Count > 0){
-            LayoutRebuilder.MarkLayoutForRebuild(sizeFitters.Pop());
-        } while(layoutGroups.Count > 0){
-            LayoutRebuilder.MarkLayoutForRebuild(layoutGroups.Pop());
-        } Canvas.ForceUpdateCanvases();*/
-
     }
+
+    public static void SetStyle(this Button b, Color background, Color text){
+        Color.RGBToHSV(background, out float h, out float s, out float v);
+        Color variant1 = Color.HSVToRGB(h, s, v - 0.04f);
+        Color variant2 = Color.HSVToRGB(h, s, v - 0.22f);
+        Color variant3 = variant2;
+        variant1.a = 1;
+        variant2.a = 1;
+        variant3.a = 0.5f;
+
+        ColorBlock newBlock = b.colors;
+        newBlock.normalColor = background;
+        newBlock.highlightedColor = variant1;
+        newBlock.pressedColor = variant2;
+        newBlock.selectedColor = variant1;
+        newBlock.disabledColor = variant3;
+
+        b.colors = newBlock;
+
+        TMPro.TextMeshProUGUI txt = b.gameObject.GetComponentDownward<TMPro.TextMeshProUGUI>();
+        if(txt != null) txt.color = text;
+    }
+    
     public static void Toggle(this GameObject g){
         g.SetActive(!g.activeSelf);
     }

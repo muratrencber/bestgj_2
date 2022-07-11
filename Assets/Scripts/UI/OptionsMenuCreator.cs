@@ -46,6 +46,7 @@ public class OptionsMenuCreator
         }
     }
 
+    static readonly string[] foldButtonStyle = {"#575757", "#cccccc"};
     static readonly ItemPaths[] paths = {   new ItemPaths(typeof(TextMeshProUGUI), "UI/Menu/Label", ItemType.LABEL),
                                             new ItemPaths(typeof(Toggle), "UI/Menu/Toggle", ItemType.TOGGLE),
                                             new ItemPaths(typeof(TMP_Dropdown), "UI/Menu/Dropdown", ItemType.DROPDOWN),
@@ -84,6 +85,9 @@ public class OptionsMenuCreator
         transforms[1] = fold.container;
         transforms[2] = newContainer.itemClass;
         newContainer.itemClass.gameObject.SetActive(false);
+        ColorUtility.TryParseHtmlString(foldButtonStyle[0], out Color backgroundColor);
+        ColorUtility.TryParseHtmlString(foldButtonStyle[1], out Color textColor);
+        fold.itemClass.SetStyle(backgroundColor, textColor);
         fold.itemClass.onClick.AddListener(() => {
             newContainer.itemClass.gameObject.Toggle();
             newContainer.itemClass.GetComponent<RectTransform>().RedrawCSFUpwards(true);

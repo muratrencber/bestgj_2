@@ -2,21 +2,23 @@
     "className":"GameProperties",
     "dayCount": 6,
     "dayMinutes": 5,
-    "dailyMoney": [
-        {
-            "day":1,
-            "money": 5
-        },
-        {
-            "day":11,
-            "money": 15
-        },
-        {
-            "day":30,
-            "money": 25
-        }
-    ],
-    "discreteInterpolation": false,
+    "moneyGraph": {
+        "discreteInterpolation":false,
+        "data": [
+            {
+                "day":1,
+                "money": 5
+            },
+            {
+                "day":11,
+                "money": 15
+            },
+            {
+                "day":30,
+                "money": 25
+            }
+        ]
+    },
     "startLines":[
         {
             "text":"start_01",
